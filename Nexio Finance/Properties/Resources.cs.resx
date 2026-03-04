@@ -119,94 +119,96 @@
   </resheader>
   <data name="AppHeading" xml:space="preserve"><value>Nexio Finance.</value></data>
   <data name="AppTitle" xml:space="preserve"><value>Nexio Finance</value></data>
-  <data name="MenuAnalysis" xml:space="preserve"><value>📈  Analysis</value></data>
-  <data name="MenuDashboard" xml:space="preserve"><value>📊  Dashboard</value></data>
-  <data name="MenuSettings" xml:space="preserve"><value>⚙️  Settings &amp; Accounts</value></data>
-  <data name="MenuTransactions" xml:space="preserve"><value>💸  Transactions</value></data>
+  <data name="MenuAnalysis" xml:space="preserve">
+    <value>📈  Analýza</value>
+  </data>
+  <data name="MenuDashboard" xml:space="preserve">
+    <value>📊  Přehled</value>
+  </data>
+  <data name="MenuSettings" xml:space="preserve">
+    <value>⚙️  Správa a Účty</value>
+  </data>
+  <data name="MenuTransactions" xml:space="preserve">
+    <value>💸  Transakce</value>
+  </data>
 
-  <data name="TabAccounts" xml:space="preserve"><value>Accounts</value></data>
-  <data name="TabCategories" xml:space="preserve"><value>Categories</value></data>
-  <data name="TabCurrencies" xml:space="preserve"><value>Currencies</value></data>
-  <data name="TabBackup" xml:space="preserve"><value>Backup &amp; Restore</value></data>
-  
-  <data name="AccountDetail" xml:space="preserve"><value>Account Detail</value></data>
-  <data name="BtnNewAccount" xml:space="preserve"><value>+ New Account</value></data>
-  <data name="LblAccountName" xml:space="preserve"><value>Account Name (e.g. Revolut)</value></data>
-  <data name="LblCurrency" xml:space="preserve"><value>Currency</value></data>
-  <data name="LblInitialBalance" xml:space="preserve"><value>Initial Balance</value></data>
-  <data name="BtnDeleteAccount" xml:space="preserve"><value>Delete Account</value></data>
-  <data name="BtnSaveAccount" xml:space="preserve"><value>Save Account</value></data>
+  <data name="TabAccounts" xml:space="preserve"><value>Správa účtů</value></data>
+  <data name="TabCategories" xml:space="preserve"><value>Správa kategorií</value></data>
+  <data name="TabCurrencies" xml:space="preserve"><value>Správa měn</value></data>
+  <data name="TabBackup" xml:space="preserve"><value>Záloha a Obnova</value></data>
+  <data name="AccountDetail" xml:space="preserve"><value>Detail účtu</value></data>
+  <data name="BtnNewAccount" xml:space="preserve"><value>+ Nový účet</value></data>
+  <data name="LblAccountName" xml:space="preserve"><value>Název účtu (např. RevolutCZ)</value></data>
+  <data name="LblCurrency" xml:space="preserve"><value>Měna</value></data>
+  <data name="LblInitialBalance" xml:space="preserve"><value>Počáteční zůstatek</value></data>
+  <data name="BtnDeleteAccount" xml:space="preserve"><value>Smazat účet</value></data>
+  <data name="BtnSaveAccount" xml:space="preserve"><value>Uložit účet</value></data>
+  <data name="CategoryDetail" xml:space="preserve"><value>Detail kategorie</value></data>
+  <data name="BtnNewCategory" xml:space="preserve"><value>+ Nová hlavní kategorie</value></data>
+  <data name="LblCategoryName" xml:space="preserve"><value>Název kategorie</value></data>
+  <data name="LblBehaviorType" xml:space="preserve"><value>Typ chování</value></data>
+  <data name="TypeExpense" xml:space="preserve"><value>Výdaj</value></data>
+  <data name="TypeIncome" xml:space="preserve"><value>Příjem</value></data>
+  <data name="TypeTransfer" xml:space="preserve"><value>Převod</value></data>
+  <data name="LblParentCategory" xml:space="preserve"><value>Nadřazená kategorie (nevyplňujte pro hlavní)</value></data>
+  <data name="BtnDeleteCategory" xml:space="preserve"><value>Smazat kategorii</value></data>
+  <data name="BtnSaveCategory" xml:space="preserve"><value>Uložit kategorii</value></data>
+  <data name="CurrencyDetail" xml:space="preserve"><value>Detail měny</value></data>
+  <data name="BtnNewCurrency" xml:space="preserve"><value>+ Nová měna</value></data>
+  <data name="LblCurrencyCode" xml:space="preserve"><value>Kód měny (např. EUR)</value></data>
+  <data name="ChkMainCurrency" xml:space="preserve"><value>Toto je hlavní (základní) měna</value></data>
+  <data name="LblExchangeRate" xml:space="preserve"><value>Kurz vůči hlavní měně</value></data>
+  <data name="BtnDeleteCurrency" xml:space="preserve"><value>Smazat měnu</value></data>
+  <data name="BtnSaveCurrency" xml:space="preserve"><value>Uložit měnu</value></data>
+  <data name="BackupTitle" xml:space="preserve"><value>Zálohování a Import dat</value></data>
+  <data name="BackupDesc" xml:space="preserve"><value>JSON slouží jako kompletní záloha celé aplikace. CSV (Excel) formát můžete využít pro přehledný export nebo hromadný import transakcí z banky.</value></data>
+  <data name="BtnExportJson" xml:space="preserve"><value>⬇️ Exportovat kompletní zálohu (JSON)</value></data>
+  <data name="BtnImportJson" xml:space="preserve"><value>⬆️ Obnovit ze zálohy (JSON) - Přemaže data!</value></data>
+  <data name="BtnExportCsv" xml:space="preserve"><value>⬇️ Exportovat transakce do Excelu (.csv)</value></data>
+  <data name="BtnImportCsv" xml:space="preserve"><value>⬆️ Importovat transakce z Excelu (.csv)</value></data>
+  <data name="TotalNetWorth" xml:space="preserve"><value>CELKOVÉ ČISTÉ JMĚNÍ</value></data>
+  <data name="TotalNetWorthDesc" xml:space="preserve"><value>Kombinace všech účtů přepočtená na vybranou měnu</value></data>
+  <data name="YourAccounts" xml:space="preserve"><value>Tvé účty</value></data>
 
-  <data name="CategoryDetail" xml:space="preserve"><value>Category Detail</value></data>
-  <data name="BtnNewCategory" xml:space="preserve"><value>+ New Main Category</value></data>
-  <data name="LblCategoryName" xml:space="preserve"><value>Category Name</value></data>
-  <data name="LblBehaviorType" xml:space="preserve"><value>Behavior Type</value></data>
-  <data name="TypeExpense" xml:space="preserve"><value>Expense</value></data>
-  <data name="TypeIncome" xml:space="preserve"><value>Income</value></data>
-  <data name="TypeTransfer" xml:space="preserve"><value>Transfer</value></data>
-  <data name="LblParentCategory" xml:space="preserve"><value>Parent Category (leave empty for main)</value></data>
-  <data name="BtnDeleteCategory" xml:space="preserve"><value>Delete Category</value></data>
-  <data name="BtnSaveCategory" xml:space="preserve"><value>Save Category</value></data>
+  <data name="SearchText" xml:space="preserve"><value>Vyhledat text</value></data>
+  <data name="FilterYear" xml:space="preserve"><value>Rok</value></data>
+  <data name="FilterMonth" xml:space="preserve"><value>Měsíc</value></data>
+  <data name="FilterAccount" xml:space="preserve"><value>Účet</value></data>
+  <data name="FilterCategory" xml:space="preserve"><value>Kategorie</value></data>
+  <data name="FilterSubcategory" xml:space="preserve"><value>Podkategorie</value></data>
+  <data name="ClearFilters" xml:space="preserve"><value>✕ Vymazat filtry</value></data>
+  <data name="AddTransaction" xml:space="preserve"><value>Přidat transakci</value></data>
+  <data name="ContextEdit" xml:space="preserve"><value>✏️ Upravit transakci</value></data>
+  <data name="ContextDelete" xml:space="preserve"><value>🗑️ Smazat transakci</value></data>
+  <data name="ColDate" xml:space="preserve"><value>Datum</value></data>
+  <data name="ColAccount" xml:space="preserve"><value>Účet</value></data>
+  <data name="ColCategory" xml:space="preserve"><value>Kategorie</value></data>
+  <data name="ColSubcategory" xml:space="preserve"><value>Podkategorie</value></data>
+  <data name="ColAmount" xml:space="preserve"><value>Částka</value></data>
+  <data name="ColDescription" xml:space="preserve"><value>Popis</value></data>
 
-  <data name="CurrencyDetail" xml:space="preserve"><value>Currency Detail</value></data>
-  <data name="BtnNewCurrency" xml:space="preserve"><value>+ New Currency</value></data>
-  <data name="LblCurrencyCode" xml:space="preserve"><value>Currency Code (e.g. USD)</value></data>
-  <data name="ChkMainCurrency" xml:space="preserve"><value>This is the main (base) currency</value></data>
-  <data name="LblExchangeRate" xml:space="preserve"><value>Exchange Rate to base currency</value></data>
-  <data name="BtnDeleteCurrency" xml:space="preserve"><value>Delete Currency</value></data>
-  <data name="BtnSaveCurrency" xml:space="preserve"><value>Save Currency</value></data>
-
-  <data name="BackupTitle" xml:space="preserve"><value>Data Backup and Import</value></data>
-  <data name="BackupDesc" xml:space="preserve"><value>JSON serves as a complete backup. CSV format can be used for clear export or bulk import from your bank.</value></data>
-  <data name="BtnExportJson" xml:space="preserve"><value>⬇️ Export Complete Backup (JSON)</value></data>
-  <data name="BtnImportJson" xml:space="preserve"><value>⬆️ Restore from Backup (JSON) - Overwrites data!</value></data>
-  <data name="BtnExportCsv" xml:space="preserve"><value>⬇️ Export Transactions to Excel (.csv)</value></data>
-  <data name="BtnImportCsv" xml:space="preserve"><value>⬆️ Import Transactions from Excel (.csv)</value></data>
-
-  <data name="TotalNetWorth" xml:space="preserve"><value>TOTAL NET WORTH</value></data>
-  <data name="TotalNetWorthDesc" xml:space="preserve"><value>Combined value of all accounts converted to the selected currency</value></data>
-  <data name="YourAccounts" xml:space="preserve"><value>Your Accounts</value></data>
-
-  <data name="SearchText" xml:space="preserve"><value>Search text</value></data>
-  <data name="FilterYear" xml:space="preserve"><value>Year</value></data>
-  <data name="FilterMonth" xml:space="preserve"><value>Month</value></data>
-  <data name="FilterAccount" xml:space="preserve"><value>Account</value></data>
-  <data name="FilterCategory" xml:space="preserve"><value>Category</value></data>
-  <data name="FilterSubcategory" xml:space="preserve"><value>Subcategory</value></data>
-  <data name="ClearFilters" xml:space="preserve"><value>✕ Clear Filters</value></data>
-  <data name="AddTransaction" xml:space="preserve"><value>Add Transaction</value></data>
-  <data name="ContextEdit" xml:space="preserve"><value>✏️ Edit Transaction</value></data>
-  <data name="ContextDelete" xml:space="preserve"><value>🗑️ Delete Transaction</value></data>
-  <data name="ColDate" xml:space="preserve"><value>Date</value></data>
-  <data name="ColAccount" xml:space="preserve"><value>Account</value></data>
-  <data name="ColCategory" xml:space="preserve"><value>Category</value></data>
-  <data name="ColSubcategory" xml:space="preserve"><value>Subcategory</value></data>
-  <data name="ColAmount" xml:space="preserve"><value>Amount</value></data>
-  <data name="ColDescription" xml:space="preserve"><value>Description</value></data>
-
-  <data name="WinAddTransactionTitle" xml:space="preserve"><value>New Transaction</value></data>
-  <data name="AddRecord" xml:space="preserve"><value>Add Record</value></data>
-  <data name="TransactionTypeLabel" xml:space="preserve"><value>Transaction Type</value></data>
-  <data name="DateLabel" xml:space="preserve"><value>Date</value></data>
-  <data name="AmountLabel" xml:space="preserve"><value>Amount</value></data>
-  <data name="AccountFromLabel" xml:space="preserve"><value>Account (From)</value></data>
-  <data name="OwnTransferCheck" xml:space="preserve"><value>Transfer between my accounts</value></data>
-  <data name="AccountToLabel" xml:space="preserve"><value>To Account</value></data>
-  <data name="ExchangeRateShort" xml:space="preserve"><value>Exchange Rate</value></data>
-  <data name="CategoryLabel" xml:space="preserve"><value>Category</value></data>
-  <data name="DescriptionLabel" xml:space="preserve"><value>Description / Note</value></data>
-  <data name="BtnCancel" xml:space="preserve"><value>Cancel</value></data>
-  <data name="BtnSaveTransaction" xml:space="preserve"><value>Save Transaction</value></data>
-
-  <data name="AnalysisMonth" xml:space="preserve"><value>Month:</value></data>
-  <data name="AnalysisYear" xml:space="preserve"><value>Year:</value></data>
-  <data name="AnalysisCurrency" xml:space="preserve"><value>Currency:</value></data>
-  <data name="AnalysisIncome" xml:space="preserve"><value>Income</value></data>
-  <data name="AnalysisExpense" xml:space="preserve"><value>Expenses</value></data>
-  <data name="AnalysisSavings" xml:space="preserve"><value>Savings (Difference)</value></data>
-  <data name="AnalysisIncomeSource" xml:space="preserve"><value>Where the money came from (Income)</value></data>
-  <data name="AnalysisExpenseDest" xml:space="preserve"><value>Where the money went (Expenses)</value></data>
-  <data name="AnalysisExpenseDetail" xml:space="preserve"><value>Expense Details by Main Categories</value></data>
-  <data name="AnalysisBackToMain" xml:space="preserve"><value>← Back to Main Categories</value></data>
-  <data name="AnalysisIncomeTrend" xml:space="preserve"><value>Income Trend over Time (All Months)</value></data>
+  <data name="WinAddTransactionTitle" xml:space="preserve"><value>Nová transakce</value></data>
+  <data name="AddRecord" xml:space="preserve"><value>Přidat záznam</value></data>
+  <data name="TransactionTypeLabel" xml:space="preserve"><value>Typ transakce</value></data>
+  <data name="DateLabel" xml:space="preserve"><value>Datum</value></data>
+  <data name="AmountLabel" xml:space="preserve"><value>Částka</value></data>
+  <data name="AccountFromLabel" xml:space="preserve"><value>Účet (Z účtu)</value></data>
+  <data name="OwnTransferCheck" xml:space="preserve"><value>Převod mezi mými účty</value></data>
+  <data name="AccountToLabel" xml:space="preserve"><value>Na účet</value></data>
+  <data name="ExchangeRateShort" xml:space="preserve"><value>Kurz</value></data>
+  <data name="CategoryLabel" xml:space="preserve"><value>Kategorie</value></data>
+  <data name="DescriptionLabel" xml:space="preserve"><value>Popis / Komentář</value></data>
+  <data name="BtnCancel" xml:space="preserve"><value>Zrušit</value></data>
+  <data name="BtnSaveTransaction" xml:space="preserve"><value>Uložit transakci</value></data>
+  <data name="AnalysisMonth" xml:space="preserve"><value>Měsíc:</value></data>
+  <data name="AnalysisYear" xml:space="preserve"><value>Rok:</value></data>
+  <data name="AnalysisCurrency" xml:space="preserve"><value>Měna:</value></data>
+  <data name="AnalysisIncome" xml:space="preserve"><value>Příjmy</value></data>
+  <data name="AnalysisExpense" xml:space="preserve"><value>Náklady</value></data>
+  <data name="AnalysisSavings" xml:space="preserve"><value>Úspory (Rozdíl)</value></data>
+  <data name="AnalysisIncomeSource" xml:space="preserve"><value>Odkud peníze pocházely (Příjmy)</value></data>
+  <data name="AnalysisExpenseDest" xml:space="preserve"><value>Kde byly utraceny (Náklady)</value></data>
+  <data name="AnalysisExpenseDetail" xml:space="preserve"><value>Detail výdajů dle hlavních kategorií</value></data>
+  <data name="AnalysisBackToMain" xml:space="preserve"><value>← Zpět na hlavní kategorie</value></data>
+  <data name="AnalysisIncomeTrend" xml:space="preserve"><value>Vývoj příjmů v čase (všechny měsíce)</value></data>
 </root>
