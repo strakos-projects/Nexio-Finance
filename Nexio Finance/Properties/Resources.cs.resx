@@ -179,6 +179,9 @@
   <data name="ClearFilters" xml:space="preserve"><value>✕ Vymazat filtry</value></data>
   <data name="AddTransaction" xml:space="preserve"><value>Přidat transakci</value></data>
   <data name="ContextEdit" xml:space="preserve"><value>✏️ Upravit transakci</value></data>
+  <data name="ContextDuplicate" xml:space="preserve">
+  <value>Duplikovat</value>
+</data>
   <data name="ContextDelete" xml:space="preserve"><value>🗑️ Smazat transakci</value></data>
   <data name="ColDate" xml:space="preserve"><value>Datum</value></data>
   <data name="ColAccount" xml:space="preserve"><value>Účet</value></data>

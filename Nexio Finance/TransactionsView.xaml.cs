@@ -167,7 +167,17 @@ namespace NexioFinance.Views
                 if (editWindow.ShowDialog() == true) LoadTransactions();
             }
         }
-
+        private void DuplicateContext_Click(object sender, RoutedEventArgs e)
+        {
+            if (TransactionsGrid.SelectedItem is TransactionDisplayItem selectedRow)
+            {
+                var duplicateWindow = new AddTransactionWindow(selectedRow.Id, isDuplicate: true);
+                if (duplicateWindow.ShowDialog() == true)
+                {
+                    LoadTransactions();
+                }
+            }
+        }
         private void DeleteContext_Click(object sender, RoutedEventArgs e)
         {
             if (TransactionsGrid.SelectedItem is TransactionDisplayItem selectedRow)

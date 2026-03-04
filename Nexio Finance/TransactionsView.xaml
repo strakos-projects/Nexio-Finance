@@ -72,6 +72,7 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="{x:Static properties:Resources.ContextEdit}" Click="EditContext_Click"/>
+                        <MenuItem Header="{x:Static properties:Resources.ContextDuplicate}" Click="DuplicateContext_Click"/>
                         <Separator/>
                         <MenuItem Header="{x:Static properties:Resources.ContextDelete}" Click="DeleteContext_Click" Foreground="#EF4444" FontWeight="SemiBold"/>
                     </ContextMenu>

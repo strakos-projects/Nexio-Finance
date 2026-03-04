@@ -175,6 +175,9 @@
   <data name="FilterSubcategory" xml:space="preserve"><value>Subcategory</value></data>
   <data name="ClearFilters" xml:space="preserve"><value>✕ Clear Filters</value></data>
   <data name="AddTransaction" xml:space="preserve"><value>Add Transaction</value></data>
+  <data name="ContextDuplicate" xml:space="preserve">
+  <value>Duplicate</value>
+</data>
   <data name="ContextEdit" xml:space="preserve"><value>✏️ Edit Transaction</value></data>
   <data name="ContextDelete" xml:space="preserve"><value>🗑️ Delete Transaction</value></data>
   <data name="ColDate" xml:space="preserve"><value>Date</value></data>

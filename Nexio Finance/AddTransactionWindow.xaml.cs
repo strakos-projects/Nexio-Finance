@@ -11,11 +11,11 @@ namespace NexioFinance.Views
     {
         private int? _editingTransactionId = null;
 
-        // Uložíme si účty a měny do paměti, aby okno reagovalo bleskurychle
         private List<Account> _cachedAccounts = new List<Account>();
         private List<Currency> _cachedCurrencies = new List<Currency>();
 
-        public AddTransactionWindow(int? transactionId = null)
+        // Přidán volitelný parametr isDuplicate
+        public AddTransactionWindow(int? transactionId = null, bool isDuplicate = false)
         {
             InitializeComponent();
             _editingTransactionId = transactionId;
@@ -23,10 +23,24 @@ namespace NexioFinance.Views
 
             if (_editingTransactionId.HasValue)
             {
-                this.Title = "Úprava transakce";
+                
                 LoadTransactionForEdit();
-                // Při úpravě existující transakce zakážeme chytrý párový převod (je to příliš složité na editaci, upravuje se každá strana zvlášť)
-                IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
+
+                if (isDuplicate)
+                {
+                    this.Title = "Kopie transakce";
+
+                    
+                    _editingTransactionId = null;
+                                        TransactionDatePicker.SelectedDate = DateTime.Now;
+
+                    IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    this.Title = "Úprava transakce";
+                    IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {

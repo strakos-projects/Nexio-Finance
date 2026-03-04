@@ -61,7 +61,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Detail účtu.
+        ///   Vyhledá lokalizovaný řetězec podobný Account Detail.
         /// </summary>
         public static string AccountDetail {
             get {
@@ -70,7 +70,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Účet (Z účtu).
+        ///   Vyhledá lokalizovaný řetězec podobný Account (From).
         /// </summary>
         public static string AccountFromLabel {
             get {
@@ -79,7 +79,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Na účet.
+        ///   Vyhledá lokalizovaný řetězec podobný To Account.
         /// </summary>
         public static string AccountToLabel {
             get {
@@ -88,7 +88,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Přidat záznam.
+        ///   Vyhledá lokalizovaný řetězec podobný Add Record.
         /// </summary>
         public static string AddRecord {
             get {
@@ -97,7 +97,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Přidat transakci.
+        ///   Vyhledá lokalizovaný řetězec podobný Add Transaction.
         /// </summary>
         public static string AddTransaction {
             get {
@@ -106,7 +106,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Částka.
+        ///   Vyhledá lokalizovaný řetězec podobný Amount.
         /// </summary>
         public static string AmountLabel {
             get {
@@ -115,7 +115,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ← Zpět na hlavní kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný ← Back to Main Categories.
         /// </summary>
         public static string AnalysisBackToMain {
             get {
@@ -124,7 +124,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Měna:.
+        ///   Vyhledá lokalizovaný řetězec podobný Currency:.
         /// </summary>
         public static string AnalysisCurrency {
             get {
@@ -133,7 +133,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Náklady.
+        ///   Vyhledá lokalizovaný řetězec podobný Expenses.
         /// </summary>
         public static string AnalysisExpense {
             get {
@@ -142,7 +142,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kde byly utraceny (Náklady).
+        ///   Vyhledá lokalizovaný řetězec podobný Where the money went (Expenses).
         /// </summary>
         public static string AnalysisExpenseDest {
             get {
@@ -151,7 +151,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Detail výdajů dle hlavních kategorií.
+        ///   Vyhledá lokalizovaný řetězec podobný Expense Details by Main Categories.
         /// </summary>
         public static string AnalysisExpenseDetail {
             get {
@@ -160,7 +160,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Příjmy.
+        ///   Vyhledá lokalizovaný řetězec podobný Income.
         /// </summary>
         public static string AnalysisIncome {
             get {
@@ -169,7 +169,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Odkud peníze pocházely (Příjmy).
+        ///   Vyhledá lokalizovaný řetězec podobný Where the money came from (Income).
         /// </summary>
         public static string AnalysisIncomeSource {
             get {
@@ -178,7 +178,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Vývoj příjmů v čase (všechny měsíce).
+        ///   Vyhledá lokalizovaný řetězec podobný Income Trend over Time (All Months).
         /// </summary>
         public static string AnalysisIncomeTrend {
             get {
@@ -187,7 +187,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Měsíc:.
+        ///   Vyhledá lokalizovaný řetězec podobný Month:.
         /// </summary>
         public static string AnalysisMonth {
             get {
@@ -196,7 +196,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Úspory (Rozdíl).
+        ///   Vyhledá lokalizovaný řetězec podobný Savings (Difference).
         /// </summary>
         public static string AnalysisSavings {
             get {
@@ -205,7 +205,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Rok:.
+        ///   Vyhledá lokalizovaný řetězec podobný Year:.
         /// </summary>
         public static string AnalysisYear {
             get {
@@ -232,7 +232,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný JSON slouží jako kompletní záloha celé aplikace. CSV (Excel) formát můžete využít pro přehledný export nebo hromadný import transakcí z banky..
+        ///   Vyhledá lokalizovaný řetězec podobný JSON serves as a complete backup. CSV format can be used for clear export or bulk import from your bank..
         /// </summary>
         public static string BackupDesc {
             get {
@@ -241,7 +241,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Zálohování a Import dat.
+        ///   Vyhledá lokalizovaný řetězec podobný Data Backup and Import.
         /// </summary>
         public static string BackupTitle {
             get {
@@ -250,7 +250,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Zrušit.
+        ///   Vyhledá lokalizovaný řetězec podobný Cancel.
         /// </summary>
         public static string BtnCancel {
             get {
@@ -259,7 +259,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Smazat účet.
+        ///   Vyhledá lokalizovaný řetězec podobný Delete Account.
         /// </summary>
         public static string BtnDeleteAccount {
             get {
@@ -268,7 +268,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Smazat kategorii.
+        ///   Vyhledá lokalizovaný řetězec podobný Delete Category.
         /// </summary>
         public static string BtnDeleteCategory {
             get {
@@ -277,7 +277,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Smazat měnu.
+        ///   Vyhledá lokalizovaný řetězec podobný Delete Currency.
         /// </summary>
         public static string BtnDeleteCurrency {
             get {
@@ -286,7 +286,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Exportovat transakce do Excelu (.csv).
+        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Export Transactions to Excel (.csv).
         /// </summary>
         public static string BtnExportCsv {
             get {
@@ -295,7 +295,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Exportovat kompletní zálohu (JSON).
+        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Export Complete Backup (JSON).
         /// </summary>
         public static string BtnExportJson {
             get {
@@ -304,7 +304,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Importovat transakce z Excelu (.csv).
+        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Import Transactions from Excel (.csv).
         /// </summary>
         public static string BtnImportCsv {
             get {
@@ -313,7 +313,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Obnovit ze zálohy (JSON) - Přemaže data!.
+        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Restore from Backup (JSON) - Overwrites data!.
         /// </summary>
         public static string BtnImportJson {
             get {
@@ -322,7 +322,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + Nový účet.
+        ///   Vyhledá lokalizovaný řetězec podobný + New Account.
         /// </summary>
         public static string BtnNewAccount {
             get {
@@ -331,7 +331,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + Nová hlavní kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný + New Main Category.
         /// </summary>
         public static string BtnNewCategory {
             get {
@@ -340,7 +340,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + Nová měna.
+        ///   Vyhledá lokalizovaný řetězec podobný + New Currency.
         /// </summary>
         public static string BtnNewCurrency {
             get {
@@ -349,7 +349,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Uložit účet.
+        ///   Vyhledá lokalizovaný řetězec podobný Save Account.
         /// </summary>
         public static string BtnSaveAccount {
             get {
@@ -358,7 +358,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Uložit kategorii.
+        ///   Vyhledá lokalizovaný řetězec podobný Save Category.
         /// </summary>
         public static string BtnSaveCategory {
             get {
@@ -367,7 +367,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Uložit měnu.
+        ///   Vyhledá lokalizovaný řetězec podobný Save Currency.
         /// </summary>
         public static string BtnSaveCurrency {
             get {
@@ -376,7 +376,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Uložit transakci.
+        ///   Vyhledá lokalizovaný řetězec podobný Save Transaction.
         /// </summary>
         public static string BtnSaveTransaction {
             get {
@@ -385,7 +385,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Detail kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Category Detail.
         /// </summary>
         public static string CategoryDetail {
             get {
@@ -394,7 +394,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Category.
         /// </summary>
         public static string CategoryLabel {
             get {
@@ -403,7 +403,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Toto je hlavní (základní) měna.
+        ///   Vyhledá lokalizovaný řetězec podobný This is the main (base) currency.
         /// </summary>
         public static string ChkMainCurrency {
             get {
@@ -412,7 +412,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ✕ Vymazat filtry.
+        ///   Vyhledá lokalizovaný řetězec podobný ✕ Clear Filters.
         /// </summary>
         public static string ClearFilters {
             get {
@@ -421,7 +421,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Účet.
+        ///   Vyhledá lokalizovaný řetězec podobný Account.
         /// </summary>
         public static string ColAccount {
             get {
@@ -430,7 +430,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Částka.
+        ///   Vyhledá lokalizovaný řetězec podobný Amount.
         /// </summary>
         public static string ColAmount {
             get {
@@ -439,7 +439,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Category.
         /// </summary>
         public static string ColCategory {
             get {
@@ -448,7 +448,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Datum.
+        ///   Vyhledá lokalizovaný řetězec podobný Date.
         /// </summary>
         public static string ColDate {
             get {
@@ -457,7 +457,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Popis.
+        ///   Vyhledá lokalizovaný řetězec podobný Description.
         /// </summary>
         public static string ColDescription {
             get {
@@ -466,7 +466,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Podkategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Subcategory.
         /// </summary>
         public static string ColSubcategory {
             get {
@@ -475,7 +475,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 🗑️ Smazat transakci.
+        ///   Vyhledá lokalizovaný řetězec podobný 🗑️ Delete Transaction.
         /// </summary>
         public static string ContextDelete {
             get {
@@ -484,7 +484,16 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ✏️ Upravit transakci.
+        ///   Vyhledá lokalizovaný řetězec podobný Duplicate.
+        /// </summary>
+        public static string ContextDuplicate {
+            get {
+                return ResourceManager.GetString("ContextDuplicate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Vyhledá lokalizovaný řetězec podobný ✏️ Edit Transaction.
         /// </summary>
         public static string ContextEdit {
             get {
@@ -493,7 +502,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Detail měny.
+        ///   Vyhledá lokalizovaný řetězec podobný Currency Detail.
         /// </summary>
         public static string CurrencyDetail {
             get {
@@ -502,7 +511,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Datum.
+        ///   Vyhledá lokalizovaný řetězec podobný Date.
         /// </summary>
         public static string DateLabel {
             get {
@@ -511,7 +520,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Popis / Komentář.
+        ///   Vyhledá lokalizovaný řetězec podobný Description / Note.
         /// </summary>
         public static string DescriptionLabel {
             get {
@@ -520,7 +529,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kurz.
+        ///   Vyhledá lokalizovaný řetězec podobný Exchange Rate.
         /// </summary>
         public static string ExchangeRateShort {
             get {
@@ -529,7 +538,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Účet.
+        ///   Vyhledá lokalizovaný řetězec podobný Account.
         /// </summary>
         public static string FilterAccount {
             get {
@@ -538,7 +547,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Category.
         /// </summary>
         public static string FilterCategory {
             get {
@@ -547,7 +556,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Měsíc.
+        ///   Vyhledá lokalizovaný řetězec podobný Month.
         /// </summary>
         public static string FilterMonth {
             get {
@@ -556,7 +565,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Podkategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Subcategory.
         /// </summary>
         public static string FilterSubcategory {
             get {
@@ -565,7 +574,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Rok.
+        ///   Vyhledá lokalizovaný řetězec podobný Year.
         /// </summary>
         public static string FilterYear {
             get {
@@ -574,7 +583,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Název účtu (např. RevolutCZ).
+        ///   Vyhledá lokalizovaný řetězec podobný Account Name (e.g. Revolut).
         /// </summary>
         public static string LblAccountName {
             get {
@@ -583,7 +592,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Typ chování.
+        ///   Vyhledá lokalizovaný řetězec podobný Behavior Type.
         /// </summary>
         public static string LblBehaviorType {
             get {
@@ -592,7 +601,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Název kategorie.
+        ///   Vyhledá lokalizovaný řetězec podobný Category Name.
         /// </summary>
         public static string LblCategoryName {
             get {
@@ -601,7 +610,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Měna.
+        ///   Vyhledá lokalizovaný řetězec podobný Currency.
         /// </summary>
         public static string LblCurrency {
             get {
@@ -610,7 +619,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kód měny (např. EUR).
+        ///   Vyhledá lokalizovaný řetězec podobný Currency Code (e.g. USD).
         /// </summary>
         public static string LblCurrencyCode {
             get {
@@ -619,7 +628,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kurz vůči hlavní měně.
+        ///   Vyhledá lokalizovaný řetězec podobný Exchange Rate to base currency.
         /// </summary>
         public static string LblExchangeRate {
             get {
@@ -628,7 +637,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Počáteční zůstatek.
+        ///   Vyhledá lokalizovaný řetězec podobný Initial Balance.
         /// </summary>
         public static string LblInitialBalance {
             get {
@@ -637,7 +646,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Nadřazená kategorie (nevyplňujte pro hlavní).
+        ///   Vyhledá lokalizovaný řetězec podobný Parent Category (leave empty for main).
         /// </summary>
         public static string LblParentCategory {
             get {
@@ -646,7 +655,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 📈  Analýza.
+        ///   Vyhledá lokalizovaný řetězec podobný 📈  Analysis.
         /// </summary>
         public static string MenuAnalysis {
             get {
@@ -655,7 +664,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 📊  Přehled.
+        ///   Vyhledá lokalizovaný řetězec podobný 📊  Dashboard.
         /// </summary>
         public static string MenuDashboard {
             get {
@@ -664,7 +673,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⚙️  Správa a Účty.
+        ///   Vyhledá lokalizovaný řetězec podobný ⚙️  Settings &amp; Accounts.
         /// </summary>
         public static string MenuSettings {
             get {
@@ -673,7 +682,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 💸  Transakce.
+        ///   Vyhledá lokalizovaný řetězec podobný 💸  Transactions.
         /// </summary>
         public static string MenuTransactions {
             get {
@@ -682,7 +691,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Převod mezi mými účty.
+        ///   Vyhledá lokalizovaný řetězec podobný Transfer between my accounts.
         /// </summary>
         public static string OwnTransferCheck {
             get {
@@ -691,7 +700,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Vyhledat text.
+        ///   Vyhledá lokalizovaný řetězec podobný Search text.
         /// </summary>
         public static string SearchText {
             get {
@@ -700,7 +709,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Správa účtů.
+        ///   Vyhledá lokalizovaný řetězec podobný Accounts.
         /// </summary>
         public static string TabAccounts {
             get {
@@ -709,7 +718,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Záloha a Obnova.
+        ///   Vyhledá lokalizovaný řetězec podobný Backup &amp; Restore.
         /// </summary>
         public static string TabBackup {
             get {
@@ -718,7 +727,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Správa kategorií.
+        ///   Vyhledá lokalizovaný řetězec podobný Categories.
         /// </summary>
         public static string TabCategories {
             get {
@@ -727,7 +736,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Správa měn.
+        ///   Vyhledá lokalizovaný řetězec podobný Currencies.
         /// </summary>
         public static string TabCurrencies {
             get {
@@ -736,7 +745,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný CELKOVÉ ČISTÉ JMĚNÍ.
+        ///   Vyhledá lokalizovaný řetězec podobný TOTAL NET WORTH.
         /// </summary>
         public static string TotalNetWorth {
             get {
@@ -745,7 +754,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Kombinace všech účtů přepočtená na vybranou měnu.
+        ///   Vyhledá lokalizovaný řetězec podobný Combined value of all accounts converted to the selected currency.
         /// </summary>
         public static string TotalNetWorthDesc {
             get {
@@ -754,7 +763,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Typ transakce.
+        ///   Vyhledá lokalizovaný řetězec podobný Transaction Type.
         /// </summary>
         public static string TransactionTypeLabel {
             get {
@@ -763,7 +772,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Výdaj.
+        ///   Vyhledá lokalizovaný řetězec podobný Expense.
         /// </summary>
         public static string TypeExpense {
             get {
@@ -772,7 +781,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Příjem.
+        ///   Vyhledá lokalizovaný řetězec podobný Income.
         /// </summary>
         public static string TypeIncome {
             get {
@@ -781,7 +790,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Převod.
+        ///   Vyhledá lokalizovaný řetězec podobný Transfer.
         /// </summary>
         public static string TypeTransfer {
             get {
@@ -790,7 +799,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Nová transakce.
+        ///   Vyhledá lokalizovaný řetězec podobný New Transaction.
         /// </summary>
         public static string WinAddTransactionTitle {
             get {
@@ -799,7 +808,7 @@ namespace Nexio_Finance.Properties {
         }
         
         /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Tvé účty.
+        ///   Vyhledá lokalizovaný řetězec podobný Your Accounts.
         /// </summary>
         public static string YourAccounts {
             get {
