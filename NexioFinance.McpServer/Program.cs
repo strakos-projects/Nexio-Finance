@@ -13,6 +13,8 @@ namespace NexioFinance.McpServer
     {
         static async Task Main(string[] args)
         {
+            Console.InputEncoding = System.Text.Encoding.UTF8;
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string configFileName = "mcp_server_config.json";
             string configFilePath = Path.Combine(AppContext.BaseDirectory, configFileName);
             string placeholderPath = @"C:\Replace_This_With_Your_NexioFinance_Bin_Path";
@@ -90,7 +92,7 @@ namespace NexioFinance.McpServer
                     {
                         SendResponse(idElement, new
                         {
-                            tools = new[]
+                            tools = new object[]
                             {
                                 new
                                 {
@@ -101,7 +103,26 @@ namespace NexioFinance.McpServer
                                         type = "object",
                                         properties = new { } // Funkce aktuálně nevyžaduje žádné parametry (např. ID účtu)
                                     }
-                                }
+                                },
+                                new
+            {
+                name = "search_transactions",
+                description = "Searches and filters transactions in the database. Used to answer queries about spending history, income, and specific movements. Always provide dates in YYYY-MM-DD format.",
+                inputSchema = new
+                {
+                    type = "object",
+                    properties = new
+                    {
+                        start_date = new { type = "string", description = "Start date (YYYY-MM-DD). E.g., '2026-04-16'." },
+                        end_date = new { type = "string", description = "End date (YYYY-MM-DD). For a single specific day, use the same date as date_from." },
+                        account_name = new { type = "string", description = "Exact account name (e.g., 'Peněženka', 'DOMA')." },
+                        category = new { type = "string", description = "Main category name (e.g., 'Stravování', 'Drogerie')." },
+                        subcategory = new { type = "string", description = "Specific subcategory name (e.g., 'Restaurace', 'Potraviny')." },
+                        search_text = new { type = "string", description = "Keyword to search within the transaction description (e.g., 'Tesco')." },
+                        limit = new { type = "integer", description = "Maximum number of returned records. Default is 50. Do not request more than 100 to avoid context overflow." }
+                    }
+                }
+            }
                             }
                         });
                     }
@@ -138,6 +159,125 @@ namespace NexioFinance.McpServer
                                     new { type = "text", text = balancesJson }
                                 }
                             });
+                        }
+                        else if (toolName == "search_transactions")
+                        {
+                            using var context = new AppDbContext(optionsBuilder.Options);
+
+                            // Vyzvedneme argumenty, které AI poslalo (pokud nějaké jsou)
+                            JsonElement arguments = default;
+                            if (paramsElement.TryGetProperty("arguments", out var argsEl))
+                            {
+                                arguments = argsEl;
+                            }
+
+                            // 1. Založíme dotaz a připojíme relace z tvého EF Core modelu
+                            var query = context.Transactions
+                                .Include(t => t.Account)
+                                .Include(t => t.Category)
+                                    .ThenInclude(c => c.ParentCategory) // Potřebujeme pro zjištění hlavní kategorie
+                                .AsQueryable();
+
+                            // 2. Aplikujeme filtry, pokud je AI dodalo
+                            if (arguments.ValueKind == JsonValueKind.Object)
+                            {
+                                // Zkusíme najít 'start_date' i 'date_from'
+                                if ((arguments.TryGetProperty("start_date", out var dateFromEl) || arguments.TryGetProperty("date_from", out dateFromEl))
+                                    && DateTime.TryParse(dateFromEl.GetString(), out DateTime dateFrom))
+                                {
+                                    query = query.Where(t => t.Date >= dateFrom);
+                                }
+
+                                // Zkusíme najít 'end_date' i 'date_to'
+                                if ((arguments.TryGetProperty("end_date", out var dateToEl) || arguments.TryGetProperty("date_to", out dateToEl))
+                                    && DateTime.TryParse(dateToEl.GetString(), out DateTime dateTo))
+                                {
+                                    query = query.Where(t => t.Date < dateTo.AddDays(1)); // Do konce dne
+                                }
+
+                                if (arguments.TryGetProperty("account_name", out var accNameEl))
+                                {
+                                    string accName = accNameEl.GetString()?.ToLower();
+                                    query = query.Where(t => t.Account.Name.ToLower() == accName);
+                                }
+
+                                if (arguments.TryGetProperty("category", out var catEl))
+                                {
+                                    string catName = catEl.GetString()?.ToLower();
+                                    // Hledáme buď v samotné kategorii, nebo v její nadřazené kategorii
+                                    query = query.Where(t => t.Category.Name.ToLower() == catName ||
+                                                            (t.Category.ParentCategory != null && t.Category.ParentCategory.Name.ToLower() == catName));
+                                }
+
+                                if (arguments.TryGetProperty("subcategory", out var subCatEl))
+                                {
+                                    string subCatName = subCatEl.GetString()?.ToLower();
+                                    query = query.Where(t => t.Category.Name.ToLower() == subCatName);
+                                }
+
+                                if (arguments.TryGetProperty("search_text", out var textEl))
+                                {
+                                    string searchText = textEl.GetString()?.ToLower();
+                                    query = query.Where(t => t.Description != null && t.Description.ToLower().Contains(searchText));
+                                }
+                            }
+
+                            // 3. Limit (ochrana proti přehlcení kontextu)
+                            // 3. Limit (ochrana proti přehlcení kontextu)
+                            int limit = 50; // Tvrdý výchozí limit
+                            if (arguments.ValueKind == JsonValueKind.Object && arguments.TryGetProperty("limit", out var limitEl) && limitEl.TryGetInt32(out int parsedLimit))
+                            {
+                                limit = Math.Min(parsedLimit, 100); // Maximálně agentovi dovolíme 100, i kdyby chtěl víc
+                            }
+
+                            // --- NOVÁ OCHRANA PROTI SPÁLENÍ TOKENŮ ---
+                            // Nejdříve zjistíme, kolik by dotaz vrátil záznamů (rychlý SQL COUNT dotaz, nestahuje data)
+                            int totalCount = await query.CountAsync();
+
+                            if (totalCount > limit)
+                            {
+                                // Pokud je jich moc, odpovíme agentovi chybou a žádná data mu nepošleme
+                                string errorMessage = $"[SYSTEM ERROR] Query matched {totalCount} transactions, which exceeds the maximum allowed limit of {limit}. Request blocked to prevent token overflow. Please refine your search by specifying narrower 'start_date' and 'end_date', or use 'category'/'search_text'.";
+
+                                SendResponse(idElement, new
+                                {
+                                    content = new[]
+                                    {
+            new { type = "text", text = errorMessage }
+        },
+                                    isError = true // Signalizuje MCP klientovi, že volání nástroje selhalo a musí to zkusit jinak
+                                });
+                            }
+                            else
+                            {
+                                // 4. Spuštění dotazu a formátování výsledku (STÁHNE DATA JEN KDYŽ PROJDOU LIMITEM)
+                                var results = await query
+                                    .OrderByDescending(t => t.Date)
+                                    .Select(t => new
+                                    {
+                                        t.Id,
+                                        Date = t.Date.ToString("yyyy-MM-dd"),
+                                        Account = t.Account.Name,
+                                        Category = t.Category.ParentCategory != null ? t.Category.ParentCategory.Name : t.Category.Name,
+                                        Subcategory = t.Category.ParentCategory != null ? t.Category.Name : null,
+                                        Amount = t.Amount,
+                                        Description = t.Description ?? ""
+                                    })
+                                    .ToListAsync();
+
+                                // 5. Odeslání odpovědi zpět agentovi
+                                string jsonResult = results.Count > 0
+                                    ? JsonSerializer.Serialize(results, new JsonSerializerOptions { WriteIndented = true })
+                                    : "[]";
+
+                                SendResponse(idElement, new
+                                {
+                                    content = new[]
+                                    {
+            new { type = "text", text = jsonResult }
+        }
+                                });
+                            }
                         }
                     }
                 }
