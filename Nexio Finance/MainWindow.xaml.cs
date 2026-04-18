@@ -4,7 +4,8 @@ using System;
 using System.Linq;
 using NexioFinance.Views;
 using NexioFinance.Data;    
-using NexioFinance.Models;  
+using NexioFinance.Models;
+using Microsoft.EntityFrameworkCore;
 namespace NexioFinance
 {
     public partial class MainWindow : Window

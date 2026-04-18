@@ -1,6 +1,6 @@
 # Nexio Finance 📊
 
-**Nexio Finance** is a modern, powerful, and user-friendly Personal Finance Manager built for Windows desktop. It helps you track your wealth, analyze your spending habits, and manage multiple accounts seamlessly—bridging the gap between traditional fiat currencies and cryptocurrencies.
+**Nexio Finance** is a modern, powerful, and AI-ready Personal Finance Manager built for Windows desktop. It helps you track your wealth, analyze your spending habits, and manage multiple accounts seamlessly—bridging the gap between traditional fiat currencies and cryptocurrencies.
 
 ## 📸 Screenshots
 
@@ -8,12 +8,13 @@
 |:---:|:---:|
 | ![Dashboard](dashboard.png "Dashboard") | ![Transactions](transactions.png "Transactions") |
 
-| Analysis & Charts |
-|:---:|
-| ![Analysis](analisys.png "Analysis") |
+| Analysis & Charts | AI Integration (MCP Test) |
+|:---:|:---:|
+| ![Analysis](analisys.png "Analysis") | ![MCP Test](mcp-test.png "MCP Server Test Output") |
 
 ## ✨ Key Features
 
+* **🤖 AI Integration (MCP Server):** Features a built-in Model Context Protocol (MCP) server. Connect your local financial database directly to AI assistants (like Claude Desktop) to securely query your balances and interact with your data using natural language.
 * **Multi-Currency & Crypto Support:** Manage accounts in USD, EUR, CZK, or even Bitcoin and Ethereum. The dashboard automatically calculates your total net worth into your selected base currency using real-time (user-defined) exchange rates.
 * **Smart Dashboard:** Get a quick overview of your total wealth and individual account balances.
 * **Deep Analytics:** Visualize your cash flow with interactive pie charts for expenses/incomes and a historical trend bar chart to track your financial growth over time.
@@ -26,8 +27,9 @@
 
 * **Framework:** .NET 9.0 SDK
 * **UI:** WPF (Windows Presentation Foundation)
-* **Database:** Entity Framework Core (Local database setup)
+* **Database:** Entity Framework Core (SQLite local database with WAL mode for concurrent access)
 * **Architecture:** C# / XAML
+* **AI Protocol:** Standardized JSON-RPC 2.0 (Model Context Protocol)
 
 ## 🚀 Getting Started
 
@@ -39,7 +41,7 @@ To run this application, you will need:
 * **Visual Studio 2022** (Community, Professional, or Enterprise)
 * **.NET 9.0 SDK** (Installed via Visual Studio Installer)
 
-### Installation & Running
+### Installation & Running the Main App
 
 1. **Clone the repository:**
    ```sh

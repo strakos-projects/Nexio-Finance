@@ -13,19 +13,21 @@ namespace NexioFinance.Data
         public DbSet<Transaction> Transactions { get; set; }
 
         public DbSet<Currency> Currencies { get; set; }
+        public AppDbContext() { }
 
+        // Přidán konstruktor pro MCP server, aby mohl předat vlastní cestu
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         // Nastavení připojení k SQLite
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Databáze se uloží do složky Dokumenty uživatele do složky NexioFinance
-            //string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "NexioFinance");
-            string folder = AppContext.BaseDirectory;
-            Directory.CreateDirectory(folder); // Vytvoří složku, pokud neexistuje
+            if (!optionsBuilder.IsConfigured)
+            {
+                string folder = AppContext.BaseDirectory;
+                Directory.CreateDirectory(folder);
+                string dbPath = Path.Combine(folder, "nexio_data.db");
 
-            string dbPath = Path.Combine(folder, "nexio_data.db");
-
-            // Říkáme EF Core, že používáme SQLite
-            optionsBuilder.UseSqlite($"Data Source={dbPath}");
+                optionsBuilder.UseSqlite($"Data Source={dbPath}");
+            }
         }
 
         // Nastavení specifických pravidel pro tvorbu tabulek
