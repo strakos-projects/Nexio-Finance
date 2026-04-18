@@ -197,28 +197,44 @@ namespace NexioFinance.McpServer
 
                                 if (arguments.TryGetProperty("account_name", out var accNameEl))
                                 {
-                                    string accName = accNameEl.GetString()?.ToLower();
-                                    query = query.Where(t => t.Account.Name.ToLower() == accName);
+                                    string? accName = accNameEl.GetString()?.ToLower();
+                                    if (!string.IsNullOrEmpty(accName))
+                                    {
+                                        query = query.Where(t => t.Account.Name.ToLower() == accName);
+                                    }
                                 }
 
                                 if (arguments.TryGetProperty("category", out var catEl))
                                 {
-                                    string catName = catEl.GetString()?.ToLower();
-                                    // Hledáme buď v samotné kategorii, nebo v její nadřazené kategorii
-                                    query = query.Where(t => t.Category.Name.ToLower() == catName ||
-                                                            (t.Category.ParentCategory != null && t.Category.ParentCategory.Name.ToLower() == catName));
+                                    string? catName = catEl.GetString()?.ToLower();
+                                    if (!string.IsNullOrEmpty(catName))
+                                    {
+                                        // PŘIDÁNA KONTROLA NA NULL: t.Category != null
+                                        query = query.Where(t => t.Category != null &&
+                                                                (t.Category.Name.ToLower() == catName ||
+                                                                (t.Category.ParentCategory != null && t.Category.ParentCategory.Name.ToLower() == catName)));
+                                    }
                                 }
 
                                 if (arguments.TryGetProperty("subcategory", out var subCatEl))
                                 {
-                                    string subCatName = subCatEl.GetString()?.ToLower();
-                                    query = query.Where(t => t.Category.Name.ToLower() == subCatName);
+                                    string? subCatName = subCatEl.GetString()?.ToLower();
+                                    if (!string.IsNullOrEmpty(subCatName))
+                                    {
+                                        // PŘIDÁNA KONTROLA NA NULL: t.Category != null
+                                        query = query.Where(t => t.Category != null && t.Category.Name.ToLower() == subCatName);
+                                    }
                                 }
 
                                 if (arguments.TryGetProperty("search_text", out var textEl))
                                 {
-                                    string searchText = textEl.GetString()?.ToLower();
-                                    query = query.Where(t => t.Description != null && t.Description.ToLower().Contains(searchText));
+                                    string? searchText = textEl.GetString();
+                                    if (!string.IsNullOrEmpty(searchText))
+                                    {
+                                        // POUŽITÍ EF.Functions.Like pro robustní a case-insensitive SQL hledání
+                                        // Zabalíme searchText do %, aby to fungovalo jako Contains
+                                        query = query.Where(t => t.Description != null && EF.Functions.Like(t.Description, $"%{searchText}%"));
+                                    }
                                 }
                             }
 
