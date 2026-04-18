@@ -116,12 +116,15 @@ namespace NexioFinance.McpServer
                         {
                             using var context = new AppDbContext(optionsBuilder.Options);
 
+                            // OPRAVA ZDE: Nyní počítáme i všechny transakce daného účtu
                             var accounts = await context.Accounts
                                 .Select(a => new
                                 {
                                     AccountName = a.Name,
                                     Currency = a.Currency,
-                                    CurrentBalance = a.InitialBalance
+                                    // Entity Framework automaticky sečte všechny Amount hodnoty z navázaných transakcí.
+                                    // Pokud účet nemá žádné transakce, Sum() bezpečně vrátí 0.
+                                    CurrentBalance = a.InitialBalance + a.Transactions.Sum(t => t.Amount)
                                 })
                                 .ToListAsync();
 
