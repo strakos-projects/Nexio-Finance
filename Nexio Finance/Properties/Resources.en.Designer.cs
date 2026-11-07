@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nexio_Finance.Properties {
+namespace Nexio_Finance.Properties
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   Třída prostředků se silnými typy pro vyhledávání lokalizovaných řetězců atp.
     /// </summary>
@@ -22,787 +23,961 @@ namespace Nexio_Finance.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources___Kopie {
-        
+    public class Resources___Kopie
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources___Kopie() {
+        internal Resources___Kopie()
+        {
         }
-        
+
         /// <summary>
         ///   Vrací instanci ResourceManager uloženou v mezipaměti použitou touto třídou.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Nexio_Finance.Properties.Resources - Kopie", typeof(Resources___Kopie).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Potlačí vlastnost CurrentUICulture aktuálního vlákna pro všechna
         ///   vyhledání prostředků pomocí třídy prostředků se silnými typy.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Detail účtu.
         /// </summary>
-        public static string AccountDetail {
-            get {
+        public static string AccountDetail
+        {
+            get
+            {
                 return ResourceManager.GetString("AccountDetail", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Účet (Z účtu).
         /// </summary>
-        public static string AccountFromLabel {
-            get {
+        public static string AccountFromLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("AccountFromLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Na účet.
         /// </summary>
-        public static string AccountToLabel {
-            get {
+        public static string AccountToLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("AccountToLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Přidat záznam.
         /// </summary>
-        public static string AddRecord {
-            get {
+        public static string AddRecord
+        {
+            get
+            {
                 return ResourceManager.GetString("AddRecord", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Přidat transakci.
         /// </summary>
-        public static string AddTransaction {
-            get {
+        public static string AddTransaction
+        {
+            get
+            {
                 return ResourceManager.GetString("AddTransaction", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Částka.
         /// </summary>
-        public static string AmountLabel {
-            get {
+        public static string AmountLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("AmountLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ← Zpět na hlavní kategorie.
         /// </summary>
-        public static string AnalysisBackToMain {
-            get {
+        public static string AnalysisBackToMain
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisBackToMain", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Měna:.
         /// </summary>
-        public static string AnalysisCurrency {
-            get {
+        public static string AnalysisCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Náklady.
         /// </summary>
-        public static string AnalysisExpense {
-            get {
+        public static string AnalysisExpense
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisExpense", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kde byly utraceny (Náklady).
         /// </summary>
-        public static string AnalysisExpenseDest {
-            get {
+        public static string AnalysisExpenseDest
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisExpenseDest", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Detail výdajů dle hlavních kategorií.
         /// </summary>
-        public static string AnalysisExpenseDetail {
-            get {
+        public static string AnalysisExpenseDetail
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisExpenseDetail", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Příjmy.
         /// </summary>
-        public static string AnalysisIncome {
-            get {
+        public static string AnalysisIncome
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisIncome", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Odkud peníze pocházely (Příjmy).
         /// </summary>
-        public static string AnalysisIncomeSource {
-            get {
+        public static string AnalysisIncomeSource
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisIncomeSource", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Vývoj příjmů v čase (všechny měsíce).
         /// </summary>
-        public static string AnalysisIncomeTrend {
-            get {
+        public static string AnalysisIncomeTrend
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisIncomeTrend", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Měsíc:.
         /// </summary>
-        public static string AnalysisMonth {
-            get {
+        public static string AnalysisMonth
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisMonth", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Úspory (Rozdíl).
         /// </summary>
-        public static string AnalysisSavings {
-            get {
+        public static string AnalysisSavings
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisSavings", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Rok:.
         /// </summary>
-        public static string AnalysisYear {
-            get {
+        public static string AnalysisYear
+        {
+            get
+            {
                 return ResourceManager.GetString("AnalysisYear", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Nexio Finance..
         /// </summary>
-        public static string AppHeading {
-            get {
+        public static string AppHeading
+        {
+            get
+            {
                 return ResourceManager.GetString("AppHeading", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Nexio Finance.
         /// </summary>
-        public static string AppTitle {
-            get {
+        public static string AppTitle
+        {
+            get
+            {
                 return ResourceManager.GetString("AppTitle", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný JSON slouží jako kompletní záloha celé aplikace. CSV (Excel) formát můžete využít pro přehledný export nebo hromadný import transakcí z banky..
         /// </summary>
-        public static string BackupDesc {
-            get {
+        public static string BackupDesc
+        {
+            get
+            {
                 return ResourceManager.GetString("BackupDesc", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Zálohování a Import dat.
         /// </summary>
-        public static string BackupTitle {
-            get {
+        public static string BackupTitle
+        {
+            get
+            {
                 return ResourceManager.GetString("BackupTitle", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Zrušit.
         /// </summary>
-        public static string BtnCancel {
-            get {
+        public static string BtnCancel
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnCancel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Smazat účet.
         /// </summary>
-        public static string BtnDeleteAccount {
-            get {
+        public static string BtnDeleteAccount
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnDeleteAccount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Smazat kategorii.
         /// </summary>
-        public static string BtnDeleteCategory {
-            get {
+        public static string BtnDeleteCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnDeleteCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Smazat měnu.
         /// </summary>
-        public static string BtnDeleteCurrency {
-            get {
+        public static string BtnDeleteCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnDeleteCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Exportovat transakce do Excelu (.csv).
         /// </summary>
-        public static string BtnExportCsv {
-            get {
+        public static string BtnExportCsv
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnExportCsv", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Exportovat kompletní zálohu (JSON).
         /// </summary>
-        public static string BtnExportJson {
-            get {
+        public static string BtnExportJson
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnExportJson", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Importovat transakce z Excelu (.csv).
         /// </summary>
-        public static string BtnImportCsv {
-            get {
+        public static string BtnImportCsv
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnImportCsv", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Obnovit ze zálohy (JSON) - Přemaže data!.
         /// </summary>
-        public static string BtnImportJson {
-            get {
+        public static string BtnImportJson
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnImportJson", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný + Nový účet.
         /// </summary>
-        public static string BtnNewAccount {
-            get {
+        public static string BtnNewAccount
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnNewAccount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný + Nová hlavní kategorie.
         /// </summary>
-        public static string BtnNewCategory {
-            get {
+        public static string BtnNewCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnNewCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný + Nová měna.
         /// </summary>
-        public static string BtnNewCurrency {
-            get {
+        public static string BtnNewCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnNewCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Uložit účet.
         /// </summary>
-        public static string BtnSaveAccount {
-            get {
+        public static string BtnSaveAccount
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnSaveAccount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Uložit kategorii.
         /// </summary>
-        public static string BtnSaveCategory {
-            get {
+        public static string BtnSaveCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnSaveCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Uložit měnu.
         /// </summary>
-        public static string BtnSaveCurrency {
-            get {
+        public static string BtnSaveCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnSaveCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Uložit transakci.
         /// </summary>
-        public static string BtnSaveTransaction {
-            get {
+        public static string BtnSaveTransaction
+        {
+            get
+            {
                 return ResourceManager.GetString("BtnSaveTransaction", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Detail kategorie.
         /// </summary>
-        public static string CategoryDetail {
-            get {
+        public static string CategoryDetail
+        {
+            get
+            {
                 return ResourceManager.GetString("CategoryDetail", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
         /// </summary>
-        public static string CategoryLabel {
-            get {
+        public static string CategoryLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("CategoryLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Toto je hlavní (základní) měna.
         /// </summary>
-        public static string ChkMainCurrency {
-            get {
+        public static string ChkMainCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("ChkMainCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ✕ Vymazat filtry.
         /// </summary>
-        public static string ClearFilters {
-            get {
+        public static string ClearFilters
+        {
+            get
+            {
                 return ResourceManager.GetString("ClearFilters", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Účet.
         /// </summary>
-        public static string ColAccount {
-            get {
+        public static string ColAccount
+        {
+            get
+            {
                 return ResourceManager.GetString("ColAccount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Částka.
         /// </summary>
-        public static string ColAmount {
-            get {
+        public static string ColAmount
+        {
+            get
+            {
                 return ResourceManager.GetString("ColAmount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
         /// </summary>
-        public static string ColCategory {
-            get {
+        public static string ColCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("ColCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Datum.
         /// </summary>
-        public static string ColDate {
-            get {
+        public static string ColDate
+        {
+            get
+            {
                 return ResourceManager.GetString("ColDate", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Popis.
         /// </summary>
-        public static string ColDescription {
-            get {
+        public static string ColDescription
+        {
+            get
+            {
                 return ResourceManager.GetString("ColDescription", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Podkategorie.
         /// </summary>
-        public static string ColSubcategory {
-            get {
+        public static string ColSubcategory
+        {
+            get
+            {
                 return ResourceManager.GetString("ColSubcategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný 🗑️ Smazat transakci.
         /// </summary>
-        public static string ContextDelete {
-            get {
+        public static string ContextDelete
+        {
+            get
+            {
                 return ResourceManager.GetString("ContextDelete", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ✏️ Upravit transakci.
         /// </summary>
-        public static string ContextEdit {
-            get {
+        public static string ContextEdit
+        {
+            get
+            {
                 return ResourceManager.GetString("ContextEdit", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Detail měny.
         /// </summary>
-        public static string CurrencyDetail {
-            get {
+        public static string CurrencyDetail
+        {
+            get
+            {
                 return ResourceManager.GetString("CurrencyDetail", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Datum.
         /// </summary>
-        public static string DateLabel {
-            get {
+        public static string DateLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("DateLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Popis / Komentář.
         /// </summary>
-        public static string DescriptionLabel {
-            get {
+        public static string DescriptionLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("DescriptionLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kurz.
         /// </summary>
-        public static string ExchangeRateShort {
-            get {
+        public static string ExchangeRateShort
+        {
+            get
+            {
                 return ResourceManager.GetString("ExchangeRateShort", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Účet.
         /// </summary>
-        public static string FilterAccount {
-            get {
+        public static string FilterAccount
+        {
+            get
+            {
                 return ResourceManager.GetString("FilterAccount", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kategorie.
         /// </summary>
-        public static string FilterCategory {
-            get {
+        public static string FilterCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("FilterCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Měsíc.
         /// </summary>
-        public static string FilterMonth {
-            get {
+        public static string FilterMonth
+        {
+            get
+            {
                 return ResourceManager.GetString("FilterMonth", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Podkategorie.
         /// </summary>
-        public static string FilterSubcategory {
-            get {
+        public static string FilterSubcategory
+        {
+            get
+            {
                 return ResourceManager.GetString("FilterSubcategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Rok.
         /// </summary>
-        public static string FilterYear {
-            get {
+        public static string FilterYear
+        {
+            get
+            {
                 return ResourceManager.GetString("FilterYear", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Název účtu (např. RevolutCZ).
         /// </summary>
-        public static string LblAccountName {
-            get {
+        public static string LblAccountName
+        {
+            get
+            {
                 return ResourceManager.GetString("LblAccountName", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Typ chování.
         /// </summary>
-        public static string LblBehaviorType {
-            get {
+        public static string LblBehaviorType
+        {
+            get
+            {
                 return ResourceManager.GetString("LblBehaviorType", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Název kategorie.
         /// </summary>
-        public static string LblCategoryName {
-            get {
+        public static string LblCategoryName
+        {
+            get
+            {
                 return ResourceManager.GetString("LblCategoryName", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Měna.
         /// </summary>
-        public static string LblCurrency {
-            get {
+        public static string LblCurrency
+        {
+            get
+            {
                 return ResourceManager.GetString("LblCurrency", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kód měny (např. EUR).
         /// </summary>
-        public static string LblCurrencyCode {
-            get {
+        public static string LblCurrencyCode
+        {
+            get
+            {
                 return ResourceManager.GetString("LblCurrencyCode", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kurz vůči hlavní měně.
         /// </summary>
-        public static string LblExchangeRate {
-            get {
+        public static string LblExchangeRate
+        {
+            get
+            {
                 return ResourceManager.GetString("LblExchangeRate", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Počáteční zůstatek.
         /// </summary>
-        public static string LblInitialBalance {
-            get {
+        public static string LblInitialBalance
+        {
+            get
+            {
                 return ResourceManager.GetString("LblInitialBalance", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Nadřazená kategorie (nevyplňujte pro hlavní).
         /// </summary>
-        public static string LblParentCategory {
-            get {
+        public static string LblParentCategory
+        {
+            get
+            {
                 return ResourceManager.GetString("LblParentCategory", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný 📈  Analýza.
         /// </summary>
-        public static string MenuAnalysis {
-            get {
+        public static string MenuAnalysis
+        {
+            get
+            {
                 return ResourceManager.GetString("MenuAnalysis", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný 📊  Přehled.
         /// </summary>
-        public static string MenuDashboard {
-            get {
+        public static string MenuDashboard
+        {
+            get
+            {
                 return ResourceManager.GetString("MenuDashboard", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný ⚙️  Správa a Účty.
         /// </summary>
-        public static string MenuSettings {
-            get {
+        public static string MenuSettings
+        {
+            get
+            {
                 return ResourceManager.GetString("MenuSettings", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný 💸  Transakce.
         /// </summary>
-        public static string MenuTransactions {
-            get {
+        public static string MenuTransactions
+        {
+            get
+            {
                 return ResourceManager.GetString("MenuTransactions", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Převod mezi mými účty.
         /// </summary>
-        public static string OwnTransferCheck {
-            get {
+        public static string OwnTransferCheck
+        {
+            get
+            {
                 return ResourceManager.GetString("OwnTransferCheck", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Vyhledat text.
         /// </summary>
-        public static string SearchText {
-            get {
+        public static string SearchText
+        {
+            get
+            {
                 return ResourceManager.GetString("SearchText", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Správa účtů.
         /// </summary>
-        public static string TabAccounts {
-            get {
+        public static string TabAccounts
+        {
+            get
+            {
                 return ResourceManager.GetString("TabAccounts", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Záloha a Obnova.
         /// </summary>
-        public static string TabBackup {
-            get {
+        public static string TabBackup
+        {
+            get
+            {
                 return ResourceManager.GetString("TabBackup", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Správa kategorií.
         /// </summary>
-        public static string TabCategories {
-            get {
+        public static string TabCategories
+        {
+            get
+            {
                 return ResourceManager.GetString("TabCategories", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Správa měn.
         /// </summary>
-        public static string TabCurrencies {
-            get {
+        public static string TabCurrencies
+        {
+            get
+            {
                 return ResourceManager.GetString("TabCurrencies", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný CELKOVÉ ČISTÉ JMĚNÍ.
         /// </summary>
-        public static string TotalNetWorth {
-            get {
+        public static string TotalNetWorth
+        {
+            get
+            {
                 return ResourceManager.GetString("TotalNetWorth", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Kombinace všech účtů přepočtená na vybranou měnu.
         /// </summary>
-        public static string TotalNetWorthDesc {
-            get {
+        public static string TotalNetWorthDesc
+        {
+            get
+            {
                 return ResourceManager.GetString("TotalNetWorthDesc", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Typ transakce.
         /// </summary>
-        public static string TransactionTypeLabel {
-            get {
+        public static string TransactionTypeLabel
+        {
+            get
+            {
                 return ResourceManager.GetString("TransactionTypeLabel", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Výdaj.
         /// </summary>
-        public static string TypeExpense {
-            get {
+        public static string TypeExpense
+        {
+            get
+            {
                 return ResourceManager.GetString("TypeExpense", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Příjem.
         /// </summary>
-        public static string TypeIncome {
-            get {
+        public static string TypeIncome
+        {
+            get
+            {
                 return ResourceManager.GetString("TypeIncome", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Převod.
         /// </summary>
-        public static string TypeTransfer {
-            get {
+        public static string TypeTransfer
+        {
+            get
+            {
                 return ResourceManager.GetString("TypeTransfer", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Nová transakce.
         /// </summary>
-        public static string WinAddTransactionTitle {
-            get {
+        public static string WinAddTransactionTitle
+        {
+            get
+            {
                 return ResourceManager.GetString("WinAddTransactionTitle", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Vyhledá lokalizovaný řetězec podobný Tvé účty.
         /// </summary>
-        public static string YourAccounts {
-            get {
+        public static string YourAccounts
+        {
+            get
+            {
                 return ResourceManager.GetString("YourAccounts", resourceCulture);
             }
         }

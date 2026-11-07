@@ -12,7 +12,7 @@ namespace Nexio_Finance
         public App()
         {
             /*
-            var culture = new CultureInfo("cs");
+            var culture = new CultureInfo("en");
 Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
             Nexio_Finance.Properties.Resources.Culture = culture;*/

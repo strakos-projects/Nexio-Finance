@@ -6,3 +6,4 @@
 *.cache
 .shadow-context.local.txt
 AI_Output.txt
+.shadow-roles.json

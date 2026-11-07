@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
+using Nexio_Finance.Properties;
 using NexioFinance.Data;
 using NexioFinance.Models;
 
@@ -14,7 +17,6 @@ namespace NexioFinance.Views
         private List<Account> _cachedAccounts = new List<Account>();
         private List<Currency> _cachedCurrencies = new List<Currency>();
 
-        // Přidán volitelný parametr isDuplicate
         public AddTransactionWindow(int? transactionId = null, bool isDuplicate = false)
         {
             InitializeComponent();
@@ -23,28 +25,101 @@ namespace NexioFinance.Views
 
             if (_editingTransactionId.HasValue)
             {
-                
                 LoadTransactionForEdit();
 
                 if (isDuplicate)
                 {
-                    this.Title = "Kopie transakce";
-
-                    
                     _editingTransactionId = null;
-                                        TransactionDatePicker.SelectedDate = DateTime.Now;
-
+                    TransactionDatePicker.SelectedDate = DateTime.Now;
                     IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
+
+                    ApplyWindowModeTheme(isEditMode: false, isDuplicateMode: true);
                 }
                 else
                 {
-                    this.Title = "Úprava transakce";
                     IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
+                    ApplyWindowModeTheme(isEditMode: true, isDuplicateMode: false);
                 }
             }
             else
             {
                 TransactionDatePicker.SelectedDate = DateTime.Now;
+                ApplyWindowModeTheme(isEditMode: false, isDuplicateMode: false);
+            }
+
+            UpdateAmountSignUI();
+        }
+
+        private void ApplyWindowModeTheme(bool isEditMode, bool isDuplicateMode)
+        {
+            var bc = new BrushConverter();
+
+            if (isEditMode)
+            {
+                // Žluté / jantarové téma pro úpravu existujícího záznamu
+                this.Title = Nexio_Finance.Properties.Resources.WinEditTransactionTitle;
+                HeaderTitleText.Text = Nexio_Finance.Properties.Resources.EditRecord;
+                HeaderIconText.Text = "✎";
+                SaveButton.Content = Nexio_Finance.Properties.Resources.BtnSaveChanges;
+
+                this.Background = (Brush)bc.ConvertFrom("#FEF9C3")!;
+                HeaderBanner.Background = (Brush)bc.ConvertFrom("#FEF08A")!;
+                HeaderBanner.BorderBrush = (Brush)bc.ConvertFrom("#F59E0B")!;
+                HeaderIconBadge.Background = (Brush)bc.ConvertFrom("#D97706")!;
+                HeaderTitleText.Foreground = (Brush)bc.ConvertFrom("#92400E")!;
+                FormCardBorder.BorderBrush = (Brush)bc.ConvertFrom("#FBBF24")!;
+                SaveButton.Background = (Brush)bc.ConvertFrom("#D97706")!;
+            }
+            else
+            {
+                // Modré téma pro přidání nového záznamu nebo kopii
+                this.Title = isDuplicateMode
+                    ? Nexio_Finance.Properties.Resources.WinDuplicateTransactionTitle
+                    : Nexio_Finance.Properties.Resources.WinAddTransactionTitle;
+
+                HeaderTitleText.Text = isDuplicateMode
+                    ? Nexio_Finance.Properties.Resources.DuplicateRecord
+                    : Nexio_Finance.Properties.Resources.AddRecord;
+
+                HeaderIconText.Text = isDuplicateMode ? "❐" : "＋";
+                SaveButton.Content = Nexio_Finance.Properties.Resources.BtnSaveTransaction;
+
+                this.Background = (Brush)bc.ConvertFrom("#EFF6FF")!;
+                HeaderBanner.Background = (Brush)bc.ConvertFrom("#DBEAFE")!;
+                HeaderBanner.BorderBrush = (Brush)bc.ConvertFrom("#93C5FD")!;
+                HeaderIconBadge.Background = (Brush)bc.ConvertFrom("#2563EB")!;
+                HeaderTitleText.Foreground = (Brush)bc.ConvertFrom("#1E3A8A")!;
+                FormCardBorder.BorderBrush = (Brush)bc.ConvertFrom("#BFDBFE")!;
+                SaveButton.Background = (Brush)bc.ConvertFrom("#2563EB")!;
+            }
+        }
+
+        private void UpdateAmountSignUI()
+        {
+            if (ExpenseMinusBadge == null || TypeComboBox == null) return;
+
+            if (TypeComboBox.SelectedIndex == 0) // Výdaj -> zobrazíme pevné designové "−"
+            {
+                ExpenseMinusBadge.Visibility = Visibility.Visible;
+
+                // Pokud uživatel přepnul z Převodu, kde měl napsané "-", odstraníme ho, ať v poli nejsou dvě mínus
+                if (!string.IsNullOrWhiteSpace(AmountTextBox?.Text) && AmountTextBox.Text.TrimStart().StartsWith("-"))
+                {
+                    AmountTextBox.Text = AmountTextBox.Text.TrimStart().TrimStart('-').TrimStart();
+                }
+            }
+            else if (TypeComboBox.SelectedIndex == 1) // Příjem -> bez pevného mínusu, kladné číslo
+            {
+                ExpenseMinusBadge.Visibility = Visibility.Collapsed;
+
+                if (!string.IsNullOrWhiteSpace(AmountTextBox?.Text) && AmountTextBox.Text.TrimStart().StartsWith("-"))
+                {
+                    AmountTextBox.Text = AmountTextBox.Text.TrimStart().TrimStart('-').TrimStart();
+                }
+            }
+            else // Převod -> uživatel zadává znaménko sám (+ nebo -)
+            {
+                ExpenseMinusBadge.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -56,7 +131,7 @@ namespace NexioFinance.Views
                 _cachedCurrencies = context.Currencies.ToList();
 
                 AccountComboBox.ItemsSource = _cachedAccounts;
-                TargetAccountComboBox.ItemsSource = _cachedAccounts; // Naplníme i cílový účet
+                TargetAccountComboBox.ItemsSource = _cachedAccounts;
 
                 if (_cachedAccounts.Count > 0 && !_editingTransactionId.HasValue)
                     AccountComboBox.SelectedIndex = 0;
@@ -91,7 +166,18 @@ namespace NexioFinance.Views
                     else TypeComboBox.SelectedIndex = 2;
 
                     TransactionDatePicker.SelectedDate = t.Date;
-                    AmountTextBox.Text = Math.Abs(t.Amount).ToString();
+
+                    // U převodů (Transfer) musíme zachovat původní znaménko (+ nebo -),
+                    // aby se odchozí převod při uložení nezměnil na příchozí!
+                    if (t.Type == TransactionType.Transfer)
+                    {
+                        AmountTextBox.Text = t.Amount.ToString();
+                    }
+                    else
+                    {
+                        AmountTextBox.Text = Math.Abs(t.Amount).ToString();
+                    }
+
                     DescriptionTextBox.Text = t.Description;
                     AccountComboBox.SelectedValue = t.AccountId;
                     CategoryComboBox.SelectedValue = t.CategoryId;
@@ -105,10 +191,10 @@ namespace NexioFinance.Views
 
         private void TypeComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            // OCHRANA: Pokud se okno teprve vykresluje a prvky ještě neexistují, přeruš to
             if (IsOwnTransferCheckBox == null || CategoryComboBox == null) return;
 
             UpdateCategories();
+            UpdateAmountSignUI();
 
             if (TypeComboBox.SelectedIndex == 2 && !_editingTransactionId.HasValue)
             {
@@ -118,7 +204,7 @@ namespace NexioFinance.Views
             {
                 IsOwnTransferCheckBox.Visibility = Visibility.Collapsed;
                 IsOwnTransferCheckBox.IsChecked = false;
-                IsOwnTransferCheckBox_Click(null, null);
+                IsOwnTransferCheckBox_Click(null!, null!);
             }
         }
 
@@ -127,13 +213,13 @@ namespace NexioFinance.Views
             if (IsOwnTransferCheckBox.IsChecked == true)
             {
                 TransferTargetPanel.Visibility = Visibility.Visible;
-                CategoryPanel.Visibility = Visibility.Collapsed; // Schováme kategorie
+                CategoryPanel.Visibility = Visibility.Collapsed;
                 UpdateExchangeRateUI();
             }
             else
             {
                 TransferTargetPanel.Visibility = Visibility.Collapsed;
-                CategoryPanel.Visibility = Visibility.Visible; // Vrátíme kategorie
+                CategoryPanel.Visibility = Visibility.Visible;
             }
         }
 
@@ -142,7 +228,6 @@ namespace NexioFinance.Views
 
         private void UpdateExchangeRateUI()
         {
-            // Ochrana před pádem při načítání okna
             if (IsOwnTransferCheckBox?.IsChecked != true || AccountComboBox.SelectedValue == null || TargetAccountComboBox.SelectedValue == null)
                 return;
 
@@ -151,7 +236,6 @@ namespace NexioFinance.Views
 
             if (sourceAcc != null && targetAcc != null && sourceAcc.Currency != targetAcc.Currency)
             {
-                // Měny jsou různé -> Zobrazíme kurz a matematicky ho předvyplníme!
                 ExchangeRatePanel.Visibility = Visibility.Visible;
                 ExchangeRateLabel.Text = $"Kurz (1 {sourceAcc.Currency} = ? {targetAcc.Currency})";
 
@@ -160,14 +244,12 @@ namespace NexioFinance.Views
 
                 if (sourceCurr != null && targetCurr != null && sourceCurr.ExchangeRate != 0)
                 {
-                    // Vzoreček pro vzájemný kurz (pokud jsou oba vztažené k hlavní měně)
                     decimal suggestedRate = targetCurr.ExchangeRate / sourceCurr.ExchangeRate;
-                    ExchangeRateTextBox.Text = suggestedRate.ToString("N4"); // 4 desetinná místa
+                    ExchangeRateTextBox.Text = suggestedRate.ToString("N4");
                 }
             }
             else
             {
-                // Stejné měny -> Kurz není potřeba
                 ExchangeRatePanel.Visibility = Visibility.Collapsed;
             }
         }
@@ -176,6 +258,12 @@ namespace NexioFinance.Views
         // ULOŽENÍ DO DATABÁZE
         // =========================================================
 
+        private static decimal ParseDecimalFlexible(string input)
+        {
+            string normalized = (input ?? string.Empty).Trim().Replace(" ", "").Replace(",", ".");
+            return decimal.Parse(normalized, NumberStyles.Any, CultureInfo.InvariantCulture);
+        }
+
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -183,9 +271,9 @@ namespace NexioFinance.Views
                 using (var context = new AppDbContext())
                 {
                     // 1. Získáme přesně tu částku, kterou uživatel zadal (včetně případného mínusu)
-                    decimal rawAmount = decimal.Parse(AmountTextBox.Text.Replace(".", ","));
+                    decimal rawAmount = ParseDecimalFlexible(AmountTextBox.Text);
 
-                    // 2. Absolutní hodnota (pro interní výpočty vlastních převodů)
+                    // 2. Absolutní hodnota (pro výdaje, příjmy a interní převody)
                     decimal baseAmount = Math.Abs(rawAmount);
 
                     if (IsOwnTransferCheckBox.IsChecked == true && !_editingTransactionId.HasValue)
@@ -202,14 +290,12 @@ namespace NexioFinance.Views
 
                         decimal targetAmount = baseAmount;
 
-                        // Přepočet podle kurzu, pokud jsou měny různé
                         if (sourceAcc.Currency != targetAcc.Currency)
                         {
-                            decimal rate = decimal.Parse(ExchangeRateTextBox.Text.Replace(".", ","));
+                            decimal rate = ParseDecimalFlexible(ExchangeRateTextBox.Text);
                             targetAmount = baseAmount * rate;
                         }
 
-                        // Vytvoříme dvě transakce najednou
                         string userDesc = DescriptionTextBox.Text;
 
                         var outTransaction = new Transaction
@@ -230,19 +316,17 @@ namespace NexioFinance.Views
                             Description = string.IsNullOrWhiteSpace(userDesc) ? $"Převod z: {sourceAcc.Name}" : $"{userDesc} (Převod z: {sourceAcc.Name})"
                         };
 
-                        // 1. KROK: Přidáme do databáze obě transakce bez propojení
                         context.Transactions.Add(outTransaction);
                         context.Transactions.Add(inTransaction);
 
                         context.SaveChanges();
 
-                        // 2. KROK: Teď, když už mají ID, je můžeme bezpečně křížem propojit
                         outTransaction.LinkedTransactionId = inTransaction.Id;
                         inTransaction.LinkedTransactionId = outTransaction.Id;
                     }
                     else
                     {
-                        // ----- KLASICKÁ TRANSAKCE (Příjem / Výdaj / Cizí převod) -----
+                        // ----- KLASICKÁ TRANSAKCE (Příjem / Výdaj / Převod) -----
                         Transaction transaction;
                         if (_editingTransactionId.HasValue) transaction = context.Transactions.Find(_editingTransactionId.Value)!;
                         else
@@ -265,10 +349,10 @@ namespace NexioFinance.Views
                             transaction.Type = TransactionType.Income;
                             transaction.Amount = baseAmount; // Příjem je VŽDY plus
                         }
-                        else // Převod mimo vlastní účty
+                        else // Převod
                         {
                             transaction.Type = TransactionType.Transfer;
-                            // OPRAVA: Pro cizí převod použijeme přesně to znaménko, jaké jsi napsal do políčka!
+                            // Zachová přesné znaménko (+ nebo -) načtené nebo zadané v poli
                             transaction.Amount = rawAmount;
                         }
 

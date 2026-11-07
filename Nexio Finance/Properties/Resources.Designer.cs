@@ -8,812 +8,144 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Nexio_Finance.Properties {
+namespace Nexio_Finance.Properties
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   Třída prostředků se silnými typy pro vyhledávání lokalizovaných řetězců atp.
     /// </summary>
-    // Tato třída byla automaticky generována třídou StronglyTypedResourceBuilder
-    // pomocí nástroje podobného aplikaci ResGen nebo Visual Studio.
-    // Chcete-li přidat nebo odebrat člena, upravte souboru .ResX a pak znovu spusťte aplikaci ResGen
-    // s parametrem /str nebo znovu sestavte projekt aplikace Visual Studio.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
-        
+    public class Resources
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Resources()
+        {
         }
-        
-        /// <summary>
-        ///   Vrací instanci ResourceManager uloženou v mezipaměti použitou touto třídou.
-        /// </summary>
+
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Nexio_Finance.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
-        /// <summary>
-        ///   Potlačí vlastnost CurrentUICulture aktuálního vlákna pro všechna
-        ///   vyhledání prostředků pomocí třídy prostředků se silnými typy.
-        /// </summary>
+
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Account Detail.
-        /// </summary>
-        public static string AccountDetail {
-            get {
-                return ResourceManager.GetString("AccountDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Account (From).
-        /// </summary>
-        public static string AccountFromLabel {
-            get {
-                return ResourceManager.GetString("AccountFromLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný To Account.
-        /// </summary>
-        public static string AccountToLabel {
-            get {
-                return ResourceManager.GetString("AccountToLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Add Record.
-        /// </summary>
-        public static string AddRecord {
-            get {
-                return ResourceManager.GetString("AddRecord", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Add Transaction.
-        /// </summary>
-        public static string AddTransaction {
-            get {
-                return ResourceManager.GetString("AddTransaction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Amount.
-        /// </summary>
-        public static string AmountLabel {
-            get {
-                return ResourceManager.GetString("AmountLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ← Back to Main Categories.
-        /// </summary>
-        public static string AnalysisBackToMain {
-            get {
-                return ResourceManager.GetString("AnalysisBackToMain", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Currency:.
-        /// </summary>
-        public static string AnalysisCurrency {
-            get {
-                return ResourceManager.GetString("AnalysisCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Expenses.
-        /// </summary>
-        public static string AnalysisExpense {
-            get {
-                return ResourceManager.GetString("AnalysisExpense", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Where the money went (Expenses).
-        /// </summary>
-        public static string AnalysisExpenseDest {
-            get {
-                return ResourceManager.GetString("AnalysisExpenseDest", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Expense Details by Main Categories.
-        /// </summary>
-        public static string AnalysisExpenseDetail {
-            get {
-                return ResourceManager.GetString("AnalysisExpenseDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Income.
-        /// </summary>
-        public static string AnalysisIncome {
-            get {
-                return ResourceManager.GetString("AnalysisIncome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Where the money came from (Income).
-        /// </summary>
-        public static string AnalysisIncomeSource {
-            get {
-                return ResourceManager.GetString("AnalysisIncomeSource", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Income Trend over Time (All Months).
-        /// </summary>
-        public static string AnalysisIncomeTrend {
-            get {
-                return ResourceManager.GetString("AnalysisIncomeTrend", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Month:.
-        /// </summary>
-        public static string AnalysisMonth {
-            get {
-                return ResourceManager.GetString("AnalysisMonth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Savings (Difference).
-        /// </summary>
-        public static string AnalysisSavings {
-            get {
-                return ResourceManager.GetString("AnalysisSavings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Year:.
-        /// </summary>
-        public static string AnalysisYear {
-            get {
-                return ResourceManager.GetString("AnalysisYear", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Nexio Finance..
-        /// </summary>
-        public static string AppHeading {
-            get {
-                return ResourceManager.GetString("AppHeading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Nexio Finance.
-        /// </summary>
-        public static string AppTitle {
-            get {
-                return ResourceManager.GetString("AppTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný JSON serves as a complete backup. CSV format can be used for clear export or bulk import from your bank..
-        /// </summary>
-        public static string BackupDesc {
-            get {
-                return ResourceManager.GetString("BackupDesc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Data Backup and Import.
-        /// </summary>
-        public static string BackupTitle {
-            get {
-                return ResourceManager.GetString("BackupTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Cancel.
-        /// </summary>
-        public static string BtnCancel {
-            get {
-                return ResourceManager.GetString("BtnCancel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Delete Account.
-        /// </summary>
-        public static string BtnDeleteAccount {
-            get {
-                return ResourceManager.GetString("BtnDeleteAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Delete Category.
-        /// </summary>
-        public static string BtnDeleteCategory {
-            get {
-                return ResourceManager.GetString("BtnDeleteCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Delete Currency.
-        /// </summary>
-        public static string BtnDeleteCurrency {
-            get {
-                return ResourceManager.GetString("BtnDeleteCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Export Transactions to Excel (.csv).
-        /// </summary>
-        public static string BtnExportCsv {
-            get {
-                return ResourceManager.GetString("BtnExportCsv", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬇️ Export Complete Backup (JSON).
-        /// </summary>
-        public static string BtnExportJson {
-            get {
-                return ResourceManager.GetString("BtnExportJson", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Import Transactions from Excel (.csv).
-        /// </summary>
-        public static string BtnImportCsv {
-            get {
-                return ResourceManager.GetString("BtnImportCsv", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⬆️ Restore from Backup (JSON) - Overwrites data!.
-        /// </summary>
-        public static string BtnImportJson {
-            get {
-                return ResourceManager.GetString("BtnImportJson", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + New Account.
-        /// </summary>
-        public static string BtnNewAccount {
-            get {
-                return ResourceManager.GetString("BtnNewAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + New Main Category.
-        /// </summary>
-        public static string BtnNewCategory {
-            get {
-                return ResourceManager.GetString("BtnNewCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný + New Currency.
-        /// </summary>
-        public static string BtnNewCurrency {
-            get {
-                return ResourceManager.GetString("BtnNewCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Save Account.
-        /// </summary>
-        public static string BtnSaveAccount {
-            get {
-                return ResourceManager.GetString("BtnSaveAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Save Category.
-        /// </summary>
-        public static string BtnSaveCategory {
-            get {
-                return ResourceManager.GetString("BtnSaveCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Save Currency.
-        /// </summary>
-        public static string BtnSaveCurrency {
-            get {
-                return ResourceManager.GetString("BtnSaveCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Save Transaction.
-        /// </summary>
-        public static string BtnSaveTransaction {
-            get {
-                return ResourceManager.GetString("BtnSaveTransaction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Category Detail.
-        /// </summary>
-        public static string CategoryDetail {
-            get {
-                return ResourceManager.GetString("CategoryDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Category.
-        /// </summary>
-        public static string CategoryLabel {
-            get {
-                return ResourceManager.GetString("CategoryLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný This is the main (base) currency.
-        /// </summary>
-        public static string ChkMainCurrency {
-            get {
-                return ResourceManager.GetString("ChkMainCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ✕ Clear Filters.
-        /// </summary>
-        public static string ClearFilters {
-            get {
-                return ResourceManager.GetString("ClearFilters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Account.
-        /// </summary>
-        public static string ColAccount {
-            get {
-                return ResourceManager.GetString("ColAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Amount.
-        /// </summary>
-        public static string ColAmount {
-            get {
-                return ResourceManager.GetString("ColAmount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Category.
-        /// </summary>
-        public static string ColCategory {
-            get {
-                return ResourceManager.GetString("ColCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Date.
-        /// </summary>
-        public static string ColDate {
-            get {
-                return ResourceManager.GetString("ColDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Description.
-        /// </summary>
-        public static string ColDescription {
-            get {
-                return ResourceManager.GetString("ColDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Subcategory.
-        /// </summary>
-        public static string ColSubcategory {
-            get {
-                return ResourceManager.GetString("ColSubcategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 🗑️ Delete Transaction.
-        /// </summary>
-        public static string ContextDelete {
-            get {
-                return ResourceManager.GetString("ContextDelete", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Duplicate.
-        /// </summary>
-        public static string ContextDuplicate {
-            get {
-                return ResourceManager.GetString("ContextDuplicate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ✏️ Edit Transaction.
-        /// </summary>
-        public static string ContextEdit {
-            get {
-                return ResourceManager.GetString("ContextEdit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Currency Detail.
-        /// </summary>
-        public static string CurrencyDetail {
-            get {
-                return ResourceManager.GetString("CurrencyDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Date.
-        /// </summary>
-        public static string DateLabel {
-            get {
-                return ResourceManager.GetString("DateLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Description / Note.
-        /// </summary>
-        public static string DescriptionLabel {
-            get {
-                return ResourceManager.GetString("DescriptionLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Exchange Rate.
-        /// </summary>
-        public static string ExchangeRateShort {
-            get {
-                return ResourceManager.GetString("ExchangeRateShort", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Account.
-        /// </summary>
-        public static string FilterAccount {
-            get {
-                return ResourceManager.GetString("FilterAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Category.
-        /// </summary>
-        public static string FilterCategory {
-            get {
-                return ResourceManager.GetString("FilterCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Month.
-        /// </summary>
-        public static string FilterMonth {
-            get {
-                return ResourceManager.GetString("FilterMonth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Subcategory.
-        /// </summary>
-        public static string FilterSubcategory {
-            get {
-                return ResourceManager.GetString("FilterSubcategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Year.
-        /// </summary>
-        public static string FilterYear {
-            get {
-                return ResourceManager.GetString("FilterYear", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Account Name (e.g. Revolut).
-        /// </summary>
-        public static string LblAccountName {
-            get {
-                return ResourceManager.GetString("LblAccountName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Behavior Type.
-        /// </summary>
-        public static string LblBehaviorType {
-            get {
-                return ResourceManager.GetString("LblBehaviorType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Category Name.
-        /// </summary>
-        public static string LblCategoryName {
-            get {
-                return ResourceManager.GetString("LblCategoryName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Currency.
-        /// </summary>
-        public static string LblCurrency {
-            get {
-                return ResourceManager.GetString("LblCurrency", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Currency Code (e.g. USD).
-        /// </summary>
-        public static string LblCurrencyCode {
-            get {
-                return ResourceManager.GetString("LblCurrencyCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Exchange Rate to base currency.
-        /// </summary>
-        public static string LblExchangeRate {
-            get {
-                return ResourceManager.GetString("LblExchangeRate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Initial Balance.
-        /// </summary>
-        public static string LblInitialBalance {
-            get {
-                return ResourceManager.GetString("LblInitialBalance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Parent Category (leave empty for main).
-        /// </summary>
-        public static string LblParentCategory {
-            get {
-                return ResourceManager.GetString("LblParentCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 📈  Analysis.
-        /// </summary>
-        public static string MenuAnalysis {
-            get {
-                return ResourceManager.GetString("MenuAnalysis", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 📊  Dashboard.
-        /// </summary>
-        public static string MenuDashboard {
-            get {
-                return ResourceManager.GetString("MenuDashboard", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný ⚙️  Settings &amp; Accounts.
-        /// </summary>
-        public static string MenuSettings {
-            get {
-                return ResourceManager.GetString("MenuSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný 💸  Transactions.
-        /// </summary>
-        public static string MenuTransactions {
-            get {
-                return ResourceManager.GetString("MenuTransactions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Transfer between my accounts.
-        /// </summary>
-        public static string OwnTransferCheck {
-            get {
-                return ResourceManager.GetString("OwnTransferCheck", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Search text.
-        /// </summary>
-        public static string SearchText {
-            get {
-                return ResourceManager.GetString("SearchText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Accounts.
-        /// </summary>
-        public static string TabAccounts {
-            get {
-                return ResourceManager.GetString("TabAccounts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Backup &amp; Restore.
-        /// </summary>
-        public static string TabBackup {
-            get {
-                return ResourceManager.GetString("TabBackup", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Categories.
-        /// </summary>
-        public static string TabCategories {
-            get {
-                return ResourceManager.GetString("TabCategories", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Currencies.
-        /// </summary>
-        public static string TabCurrencies {
-            get {
-                return ResourceManager.GetString("TabCurrencies", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný TOTAL NET WORTH.
-        /// </summary>
-        public static string TotalNetWorth {
-            get {
-                return ResourceManager.GetString("TotalNetWorth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Combined value of all accounts converted to the selected currency.
-        /// </summary>
-        public static string TotalNetWorthDesc {
-            get {
-                return ResourceManager.GetString("TotalNetWorthDesc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Transaction Type.
-        /// </summary>
-        public static string TransactionTypeLabel {
-            get {
-                return ResourceManager.GetString("TransactionTypeLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Expense.
-        /// </summary>
-        public static string TypeExpense {
-            get {
-                return ResourceManager.GetString("TypeExpense", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Income.
-        /// </summary>
-        public static string TypeIncome {
-            get {
-                return ResourceManager.GetString("TypeIncome", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Transfer.
-        /// </summary>
-        public static string TypeTransfer {
-            get {
-                return ResourceManager.GetString("TypeTransfer", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný New Transaction.
-        /// </summary>
-        public static string WinAddTransactionTitle {
-            get {
-                return ResourceManager.GetString("WinAddTransactionTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Vyhledá lokalizovaný řetězec podobný Your Accounts.
-        /// </summary>
-        public static string YourAccounts {
-            get {
-                return ResourceManager.GetString("YourAccounts", resourceCulture);
-            }
-        }
+
+        public static string AccountDetail => ResourceManager.GetString("AccountDetail", resourceCulture);
+        public static string AccountFromLabel => ResourceManager.GetString("AccountFromLabel", resourceCulture);
+        public static string AccountToLabel => ResourceManager.GetString("AccountToLabel", resourceCulture);
+        public static string AddRecord => ResourceManager.GetString("AddRecord", resourceCulture);
+        public static string EditRecord => ResourceManager.GetString("EditRecord", resourceCulture);
+        public static string DuplicateRecord => ResourceManager.GetString("DuplicateRecord", resourceCulture);
+        public static string AddTransaction => ResourceManager.GetString("AddTransaction", resourceCulture);
+        public static string AmountLabel => ResourceManager.GetString("AmountLabel", resourceCulture);
+        public static string AnalysisBackToMain => ResourceManager.GetString("AnalysisBackToMain", resourceCulture);
+        public static string AnalysisCurrency => ResourceManager.GetString("AnalysisCurrency", resourceCulture);
+        public static string AnalysisExpense => ResourceManager.GetString("AnalysisExpense", resourceCulture);
+        public static string AnalysisExpenseDest => ResourceManager.GetString("AnalysisExpenseDest", resourceCulture);
+        public static string AnalysisExpenseDetail => ResourceManager.GetString("AnalysisExpenseDetail", resourceCulture);
+        public static string AnalysisIncome => ResourceManager.GetString("AnalysisIncome", resourceCulture);
+        public static string AnalysisIncomeSource => ResourceManager.GetString("AnalysisIncomeSource", resourceCulture);
+        public static string AnalysisIncomeTrend => ResourceManager.GetString("AnalysisIncomeTrend", resourceCulture);
+        public static string AnalysisMonth => ResourceManager.GetString("AnalysisMonth", resourceCulture);
+        public static string AnalysisSavings => ResourceManager.GetString("AnalysisSavings", resourceCulture);
+        public static string AnalysisYear => ResourceManager.GetString("AnalysisYear", resourceCulture);
+        public static string AppHeading => ResourceManager.GetString("AppHeading", resourceCulture);
+        public static string AppTitle => ResourceManager.GetString("AppTitle", resourceCulture);
+        public static string BackupDesc => ResourceManager.GetString("BackupDesc", resourceCulture);
+        public static string BackupTitle => ResourceManager.GetString("BackupTitle", resourceCulture);
+        public static string BtnCancel => ResourceManager.GetString("BtnCancel", resourceCulture);
+        public static string BtnDeleteAccount => ResourceManager.GetString("BtnDeleteAccount", resourceCulture);
+        public static string BtnDeleteCategory => ResourceManager.GetString("BtnDeleteCategory", resourceCulture);
+        public static string BtnDeleteCurrency => ResourceManager.GetString("BtnDeleteCurrency", resourceCulture);
+        public static string BtnExportCsv => ResourceManager.GetString("BtnExportCsv", resourceCulture);
+        public static string BtnExportJson => ResourceManager.GetString("BtnExportJson", resourceCulture);
+        public static string BtnImportCsv => ResourceManager.GetString("BtnImportCsv", resourceCulture);
+        public static string BtnImportJson => ResourceManager.GetString("BtnImportJson", resourceCulture);
+        public static string BtnNewAccount => ResourceManager.GetString("BtnNewAccount", resourceCulture);
+        public static string BtnNewCategory => ResourceManager.GetString("BtnNewCategory", resourceCulture);
+        public static string BtnNewCurrency => ResourceManager.GetString("BtnNewCurrency", resourceCulture);
+        public static string BtnSaveAccount => ResourceManager.GetString("BtnSaveAccount", resourceCulture);
+        public static string BtnSaveCategory => ResourceManager.GetString("BtnSaveCategory", resourceCulture);
+        public static string BtnSaveCurrency => ResourceManager.GetString("BtnSaveCurrency", resourceCulture);
+        public static string BtnSaveTransaction => ResourceManager.GetString("BtnSaveTransaction", resourceCulture);
+        public static string BtnSaveChanges => ResourceManager.GetString("BtnSaveChanges", resourceCulture);
+        public static string CategoryDetail => ResourceManager.GetString("CategoryDetail", resourceCulture);
+        public static string CategoryLabel => ResourceManager.GetString("CategoryLabel", resourceCulture);
+        public static string ChkMainCurrency => ResourceManager.GetString("ChkMainCurrency", resourceCulture);
+        public static string ClearFilters => ResourceManager.GetString("ClearFilters", resourceCulture);
+        public static string ColAccount => ResourceManager.GetString("ColAccount", resourceCulture);
+        public static string ColAmount => ResourceManager.GetString("ColAmount", resourceCulture);
+        public static string ColCategory => ResourceManager.GetString("ColCategory", resourceCulture);
+        public static string ColDate => ResourceManager.GetString("ColDate", resourceCulture);
+        public static string ColDescription => ResourceManager.GetString("ColDescription", resourceCulture);
+        public static string ColSubcategory => ResourceManager.GetString("ColSubcategory", resourceCulture);
+        public static string ContextDelete => ResourceManager.GetString("ContextDelete", resourceCulture);
+        public static string ContextDuplicate => ResourceManager.GetString("ContextDuplicate", resourceCulture);
+        public static string ContextEdit => ResourceManager.GetString("ContextEdit", resourceCulture);
+        public static string CurrencyDetail => ResourceManager.GetString("CurrencyDetail", resourceCulture);
+        public static string DateLabel => ResourceManager.GetString("DateLabel", resourceCulture);
+        public static string DescriptionLabel => ResourceManager.GetString("DescriptionLabel", resourceCulture);
+        public static string ExchangeRateShort => ResourceManager.GetString("ExchangeRateShort", resourceCulture);
+        public static string FilterAccount => ResourceManager.GetString("FilterAccount", resourceCulture);
+        public static string FilterCategory => ResourceManager.GetString("FilterCategory", resourceCulture);
+        public static string FilterMonth => ResourceManager.GetString("FilterMonth", resourceCulture);
+        public static string FilterSubcategory => ResourceManager.GetString("FilterSubcategory", resourceCulture);
+        public static string FilterYear => ResourceManager.GetString("FilterYear", resourceCulture);
+        public static string LblAccountName => ResourceManager.GetString("LblAccountName", resourceCulture);
+        public static string LblBehaviorType => ResourceManager.GetString("LblBehaviorType", resourceCulture);
+        public static string LblCategoryName => ResourceManager.GetString("LblCategoryName", resourceCulture);
+        public static string LblCurrency => ResourceManager.GetString("LblCurrency", resourceCulture);
+        public static string LblCurrencyCode => ResourceManager.GetString("LblCurrencyCode", resourceCulture);
+        public static string LblExchangeRate => ResourceManager.GetString("LblExchangeRate", resourceCulture);
+        public static string LblInitialBalance => ResourceManager.GetString("LblInitialBalance", resourceCulture);
+        public static string LblParentCategory => ResourceManager.GetString("LblParentCategory", resourceCulture);
+        public static string MenuAnalysis => ResourceManager.GetString("MenuAnalysis", resourceCulture);
+        public static string MenuDashboard => ResourceManager.GetString("MenuDashboard", resourceCulture);
+        public static string MenuSettings => ResourceManager.GetString("MenuSettings", resourceCulture);
+        public static string MenuTransactions => ResourceManager.GetString("MenuTransactions", resourceCulture);
+        public static string OwnTransferCheck => ResourceManager.GetString("OwnTransferCheck", resourceCulture);
+        public static string SearchText => ResourceManager.GetString("SearchText", resourceCulture);
+        public static string TabAccounts => ResourceManager.GetString("TabAccounts", resourceCulture);
+        public static string TabBackup => ResourceManager.GetString("TabBackup", resourceCulture);
+        public static string TabCategories => ResourceManager.GetString("TabCategories", resourceCulture);
+        public static string TabCurrencies => ResourceManager.GetString("TabCurrencies", resourceCulture);
+        public static string TotalNetWorth => ResourceManager.GetString("TotalNetWorth", resourceCulture);
+        public static string TotalNetWorthDesc => ResourceManager.GetString("TotalNetWorthDesc", resourceCulture);
+        public static string TransactionTypeLabel => ResourceManager.GetString("TransactionTypeLabel", resourceCulture);
+        public static string TypeExpense => ResourceManager.GetString("TypeExpense", resourceCulture);
+        public static string TypeIncome => ResourceManager.GetString("TypeIncome", resourceCulture);
+        public static string TypeTransfer => ResourceManager.GetString("TypeTransfer", resourceCulture);
+        public static string WinAddTransactionTitle => ResourceManager.GetString("WinAddTransactionTitle", resourceCulture);
+        public static string WinEditTransactionTitle => ResourceManager.GetString("WinEditTransactionTitle", resourceCulture);
+        public static string WinDuplicateTransactionTitle => ResourceManager.GetString("WinDuplicateTransactionTitle", resourceCulture);
+        public static string YourAccounts => ResourceManager.GetString("YourAccounts", resourceCulture);
     }
 }
