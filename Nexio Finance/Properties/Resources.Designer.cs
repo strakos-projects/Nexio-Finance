@@ -147,5 +147,15 @@ namespace Nexio_Finance.Properties
         public static string WinEditTransactionTitle => ResourceManager.GetString("WinEditTransactionTitle", resourceCulture);
         public static string WinDuplicateTransactionTitle => ResourceManager.GetString("WinDuplicateTransactionTitle", resourceCulture);
         public static string YourAccounts => ResourceManager.GetString("YourAccounts", resourceCulture);
+
+        // NEW PROPERTIES
+        public static string BalanceTrendTitle => ResourceManager.GetString("BalanceTrendTitle", resourceCulture);
+        public static string FilterAllAccounts => ResourceManager.GetString("FilterAllAccounts", resourceCulture);
+        public static string FilterLast30Days => ResourceManager.GetString("FilterLast30Days", resourceCulture);
+        public static string FilterThisYear => ResourceManager.GetString("FilterThisYear", resourceCulture);
+        public static string FilterAllTime => ResourceManager.GetString("FilterAllTime", resourceCulture);
+        public static string FilterByDays => ResourceManager.GetString("FilterByDays", resourceCulture);
+        public static string FilterByWeeks => ResourceManager.GetString("FilterByWeeks", resourceCulture);
+        public static string FilterByMonths => ResourceManager.GetString("FilterByMonths", resourceCulture);
     }
 }

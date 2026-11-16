@@ -64,12 +64,10 @@
     <data name="MenuDashboard" xml:space="preserve"><value>📊  Dashboard</value></data>
     <data name="MenuSettings" xml:space="preserve"><value>⚙️  Settings &amp; Accounts</value></data>
     <data name="MenuTransactions" xml:space="preserve"><value>💸  Transactions</value></data>
-
     <data name="TabAccounts" xml:space="preserve"><value>Accounts</value></data>
     <data name="TabCategories" xml:space="preserve"><value>Categories</value></data>
     <data name="TabCurrencies" xml:space="preserve"><value>Currencies</value></data>
     <data name="TabBackup" xml:space="preserve"><value>Backup &amp; Restore</value></data>
-
     <data name="AccountDetail" xml:space="preserve"><value>Account Detail</value></data>
     <data name="BtnNewAccount" xml:space="preserve"><value>+ New Account</value></data>
     <data name="LblAccountName" xml:space="preserve"><value>Account Name (e.g. Revolut)</value></data>
@@ -77,7 +75,6 @@
     <data name="LblInitialBalance" xml:space="preserve"><value>Initial Balance</value></data>
     <data name="BtnDeleteAccount" xml:space="preserve"><value>Delete Account</value></data>
     <data name="BtnSaveAccount" xml:space="preserve"><value>Save Account</value></data>
-
     <data name="CategoryDetail" xml:space="preserve"><value>Category Detail</value></data>
     <data name="BtnNewCategory" xml:space="preserve"><value>+ New Main Category</value></data>
     <data name="LblCategoryName" xml:space="preserve"><value>Category Name</value></data>
@@ -88,7 +85,6 @@
     <data name="LblParentCategory" xml:space="preserve"><value>Parent Category (leave empty for main)</value></data>
     <data name="BtnDeleteCategory" xml:space="preserve"><value>Delete Category</value></data>
     <data name="BtnSaveCategory" xml:space="preserve"><value>Save Category</value></data>
-
     <data name="CurrencyDetail" xml:space="preserve"><value>Currency Detail</value></data>
     <data name="BtnNewCurrency" xml:space="preserve"><value>+ New Currency</value></data>
     <data name="LblCurrencyCode" xml:space="preserve"><value>Currency Code (e.g. USD)</value></data>
@@ -96,18 +92,15 @@
     <data name="LblExchangeRate" xml:space="preserve"><value>Exchange Rate to base currency</value></data>
     <data name="BtnDeleteCurrency" xml:space="preserve"><value>Delete Currency</value></data>
     <data name="BtnSaveCurrency" xml:space="preserve"><value>Save Currency</value></data>
-
     <data name="BackupTitle" xml:space="preserve"><value>Data Backup and Import</value></data>
     <data name="BackupDesc" xml:space="preserve"><value>JSON serves as a complete backup. CSV format can be used for clear export or bulk import from your bank.</value></data>
     <data name="BtnExportJson" xml:space="preserve"><value>⬇️ Export Complete Backup (JSON)</value></data>
     <data name="BtnImportJson" xml:space="preserve"><value>⬆️ Restore from Backup (JSON) - Overwrites data!</value></data>
     <data name="BtnExportCsv" xml:space="preserve"><value>⬇️ Export Transactions to Excel (.csv)</value></data>
     <data name="BtnImportCsv" xml:space="preserve"><value>⬆️ Import Transactions from Excel (.csv)</value></data>
-
     <data name="TotalNetWorth" xml:space="preserve"><value>TOTAL NET WORTH</value></data>
     <data name="TotalNetWorthDesc" xml:space="preserve"><value>Combined value of all accounts converted to the selected currency</value></data>
     <data name="YourAccounts" xml:space="preserve"><value>Your Accounts</value></data>
-
     <data name="SearchText" xml:space="preserve"><value>Search text</value></data>
     <data name="FilterYear" xml:space="preserve"><value>Year</value></data>
     <data name="FilterMonth" xml:space="preserve"><value>Month</value></data>
@@ -125,7 +118,6 @@
     <data name="ColSubcategory" xml:space="preserve"><value>Subcategory</value></data>
     <data name="ColAmount" xml:space="preserve"><value>Amount</value></data>
     <data name="ColDescription" xml:space="preserve"><value>Description</value></data>
-
     <data name="WinAddTransactionTitle" xml:space="preserve"><value>New Transaction</value></data>
     <data name="WinEditTransactionTitle" xml:space="preserve"><value>Edit Transaction</value></data>
     <data name="WinDuplicateTransactionTitle" xml:space="preserve"><value>Duplicate Transaction</value></data>
@@ -144,7 +136,6 @@
     <data name="BtnCancel" xml:space="preserve"><value>Cancel</value></data>
     <data name="BtnSaveTransaction" xml:space="preserve"><value>Save Transaction</value></data>
     <data name="BtnSaveChanges" xml:space="preserve"><value>Save Changes</value></data>
-
     <data name="AnalysisMonth" xml:space="preserve"><value>Month:</value></data>
     <data name="AnalysisYear" xml:space="preserve"><value>Year:</value></data>
     <data name="AnalysisCurrency" xml:space="preserve"><value>Currency:</value></data>
@@ -156,4 +147,14 @@
     <data name="AnalysisExpenseDetail" xml:space="preserve"><value>Expense Details by Main Categories</value></data>
     <data name="AnalysisBackToMain" xml:space="preserve"><value>← Back to Main Categories</value></data>
     <data name="AnalysisIncomeTrend" xml:space="preserve"><value>Income Trend over Time (All Months)</value></data>
+
+    <!-- NEW TEXTS FOR BALANCE CHART -->
+    <data name="BalanceTrendTitle" xml:space="preserve"><value>Account Balance Trend</value></data>
+    <data name="FilterAllAccounts" xml:space="preserve"><value>All Accounts</value></data>
+    <data name="FilterLast30Days" xml:space="preserve"><value>Last 30 Days</value></data>
+    <data name="FilterThisYear" xml:space="preserve"><value>This Year</value></data>
+    <data name="FilterAllTime" xml:space="preserve"><value>All Time</value></data>
+    <data name="FilterByDays" xml:space="preserve"><value>By Days</value></data>
+    <data name="FilterByWeeks" xml:space="preserve"><value>By Weeks</value></data>
+    <data name="FilterByMonths" xml:space="preserve"><value>By Months</value></data>
 </root>

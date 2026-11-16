@@ -16,6 +16,7 @@ namespace NexioFinance.Views
     {
         private List<Transaction> _allTransactions = new List<Transaction>();
         private List<Currency> _currencies = new List<Currency>();
+        private List<Account> _cachedAccounts = new List<Account>();
         private string[] _colors = { "#3B82F6", "#EF4444", "#10B981", "#F59E0B", "#F59E0B", "#8B5CF6", "#EC4899", "#14B8A6", "#6366F1", "#F43F5E", "#0EA5E9", "#84CC16" };
 
         private int? _drillDownCategoryId = null;
@@ -24,24 +25,22 @@ namespace NexioFinance.Views
         {
             InitializeComponent();
             LoadInitialData();
+            InitBalanceFilters();
         }
 
         private void LoadInitialData()
         {
             using (var context = new AppDbContext())
             {
-                // DŮLEŽITÉ: Přidáno Include(t => t.Account), abychom věděli měnu transakce
                 _allTransactions = context.Transactions
                     .Include(t => t.Account)
                     .Include(t => t.Category)
                     .ThenInclude(c => c.ParentCategory)
-                    .Where(t => t.Type != TransactionType.Transfer)
                     .ToList();
 
-                // Načtení a naplnění měn
                 _currencies = context.Currencies.ToList();
+                _cachedAccounts = context.Accounts.ToList();
 
-                // Dočasně odpojíme event, abychom nespouštěli výpočet moc brzo
                 CurrencyComboBox.SelectionChanged -= Filter_SelectionChanged;
                 CurrencyComboBox.ItemsSource = _currencies;
                 var mainCurr = _currencies.FirstOrDefault(c => c.IsMainCurrency) ?? _currencies.FirstOrDefault();
@@ -58,19 +57,60 @@ namespace NexioFinance.Views
             }
         }
 
+        private void InitBalanceFilters()
+        {
+            BalanceAccountFilter.SelectionChanged -= BalanceFilter_SelectionChanged;
+            BalanceRangeFilter.SelectionChanged -= BalanceFilter_SelectionChanged;
+            BalanceGranularityFilter.SelectionChanged -= BalanceFilter_SelectionChanged;
+
+            BalanceAccountFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterAllAccounts ?? "Všechny účty");
+            foreach (var acc in _cachedAccounts) BalanceAccountFilter.Items.Add(acc.Name);
+            BalanceAccountFilter.SelectedIndex = 0;
+
+            BalanceRangeFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterLast30Days ?? "Posledních 30 dní");
+            BalanceRangeFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterThisYear ?? "Tento rok");
+            BalanceRangeFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterAllTime ?? "Celé období");
+            BalanceRangeFilter.SelectedIndex = 0;
+
+            BalanceGranularityFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterByDays ?? "Po dnech");
+            BalanceGranularityFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterByWeeks ?? "Po týdnech");
+            BalanceGranularityFilter.Items.Add(Nexio_Finance.Properties.Resources.FilterByMonths ?? "Po měsících");
+            BalanceGranularityFilter.SelectedIndex = 0;
+
+            BalanceAccountFilter.SelectionChanged += BalanceFilter_SelectionChanged;
+            BalanceRangeFilter.SelectionChanged += BalanceFilter_SelectionChanged;
+            BalanceGranularityFilter.SelectionChanged += BalanceFilter_SelectionChanged;
+        }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            UpdateBalanceChart();
+        }
+
+        private void BalanceTrendCanvas_Loaded(object sender, RoutedEventArgs e)
+        {
+            UpdateBalanceChart(); // Spolehlivé vykreslení ihned po načtení plátna
+        }
+
         private void Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _drillDownCategoryId = null;
             BackButton.Visibility = Visibility.Collapsed;
-            BarChartTitle.Text = "Detail výdajů dle hlavních kategorií";
+            BarChartTitle.Text = Nexio_Finance.Properties.Resources.AnalysisExpenseDetail ?? "Detail výdajů dle hlavních kategorií";
             UpdateDashboard();
+            UpdateBalanceChart();
+        }
+
+        private void BalanceFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateBalanceChart();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             _drillDownCategoryId = null;
             BackButton.Visibility = Visibility.Collapsed;
-            BarChartTitle.Text = "Detail výdajů dle hlavních kategorií";
+            BarChartTitle.Text = Nexio_Finance.Properties.Resources.AnalysisExpenseDetail ?? "Detail výdajů dle hlavních kategorií";
             UpdateDashboard();
         }
 
@@ -81,21 +121,19 @@ namespace NexioFinance.Views
             int selectedYear = (int)YearComboBox.SelectedItem;
             int selectedMonth = (int)MonthComboBox.SelectedItem;
 
-            // Zjistíme cílovou měnu a její kurz
             var targetCurrency = CurrencyComboBox.SelectedItem as Currency;
             decimal targetRate = targetCurrency.ExchangeRate != 0 ? targetCurrency.ExchangeRate : 1m;
 
-            var filtered = _allTransactions.Where(t => t.Date.Year == selectedYear && t.Date.Month == selectedMonth).ToList();
+            var filtered = _allTransactions
+                .Where(t => t.Type != TransactionType.Transfer && t.Date.Year == selectedYear && t.Date.Month == selectedMonth)
+                .ToList();
 
-            // KOUZLO: Převedeme všechny filtrované transakce do společné zvolené měny!
             var convertedData = new List<ChartTransactionItem>();
             foreach (var t in filtered)
             {
-                // 1. Zjistíme kurz účtu, na kterém transakce proběhla
                 var accCurrency = _currencies.FirstOrDefault(c => c.Code == t.Account.Currency);
                 decimal rateToMain = (accCurrency != null && accCurrency.ExchangeRate != 0) ? accCurrency.ExchangeRate : 1m;
 
-                // 2. Přepočet: Hodnota * Kurz Účtu / Kurz Cílové Měny
                 decimal amountInMain = t.Amount * rateToMain;
                 decimal finalAmount = amountInMain / targetRate;
 
@@ -107,7 +145,6 @@ namespace NexioFinance.Views
                 });
             }
 
-            // Sčítáme už převedené částky
             decimal totalInc = convertedData.Where(t => t.Type == TransactionType.Income).Sum(t => t.ConvertedAmount);
             decimal totalExp = Math.Abs(convertedData.Where(t => t.Type == TransactionType.Expense).Sum(t => t.ConvertedAmount));
 
@@ -115,26 +152,192 @@ namespace NexioFinance.Views
             TotalExpenseText.Text = $"{totalExp:N2} {targetCurrency.Code}";
             SavingsText.Text = $"{(totalInc - totalExp):N2} {targetCurrency.Code}";
 
-            // Grafům už pošleme převedená data
             DrawIncomePieChart(convertedData);
             DrawExpensePieChart(convertedData);
             DrawBarChart(convertedData);
-
-            // NOVÝ GRAF: Pošleme mu cílovou měnu a kurz, ať může přepočítat i 10 let stará data!
             DrawIncomeTrendChart(targetCurrency, targetRate);
         }
+
         // ==========================================
-        // VÝVOJ PŘÍJMŮ (Všechny měsíce v historii)
+        // VÝVOJ CELKOVÉHO ZŮSTATKU V ČASE (Vylepšený design & mřížka)
+        // ==========================================
+        private void UpdateBalanceChart()
+        {
+            if (BalanceTrendCanvas == null || CurrencyComboBox == null || CurrencyComboBox.SelectedItem == null || !IsLoaded) return;
+            BalanceTrendCanvas.Children.Clear();
+
+            var targetCurrency = CurrencyComboBox.SelectedItem as Currency;
+            decimal targetRate = targetCurrency.ExchangeRate != 0 ? targetCurrency.ExchangeRate : 1m;
+
+            var accountsToProcess = new List<Account>();
+            if (BalanceAccountFilter.SelectedIndex <= 0)
+                accountsToProcess = _cachedAccounts;
+            else
+            {
+                string accName = BalanceAccountFilter.SelectedItem.ToString();
+                var acc = _cachedAccounts.FirstOrDefault(a => a.Name == accName);
+                if (acc != null) accountsToProcess.Add(acc);
+            }
+            if (!accountsToProcess.Any()) return;
+
+            DateTime endDate = DateTime.Now.Date;
+            DateTime startDate = endDate.AddDays(-30);
+
+            if (BalanceRangeFilter.SelectedIndex == 1) startDate = new DateTime(endDate.Year, 1, 1);
+            else if (BalanceRangeFilter.SelectedIndex == 2) startDate = _allTransactions.Any() ? _allTransactions.Min(t => t.Date.Date) : endDate.AddDays(-30);
+
+            decimal runningBalance = 0;
+            foreach (var acc in accountsToProcess)
+            {
+                var accCurrency = _currencies.FirstOrDefault(c => c.Code == acc.Currency);
+                decimal rateToMain = (accCurrency != null && accCurrency.ExchangeRate != 0) ? accCurrency.ExchangeRate : 1m;
+
+                decimal sumPreTx = _allTransactions
+                    .Where(t => t.AccountId == acc.Id && t.Date.Date < startDate)
+                    .Sum(t => t.Amount);
+
+                runningBalance += ((acc.InitialBalance + sumPreTx) * rateToMain) / targetRate;
+            }
+
+            var points = new List<Point>();
+            var tooltips = new List<string>();
+            DateTime current = startDate;
+
+            while (current <= endDate)
+            {
+                DateTime next = current.AddDays(1);
+                if (BalanceGranularityFilter.SelectedIndex == 1) next = current.AddDays(7);
+                else if (BalanceGranularityFilter.SelectedIndex == 2) next = current.AddMonths(1);
+                if (next > endDate && current < endDate) next = endDate.AddDays(1);
+
+                decimal periodSum = 0;
+                foreach (var acc in accountsToProcess)
+                {
+                    var accCurrency = _currencies.FirstOrDefault(c => c.Code == acc.Currency);
+                    decimal rateToMain = (accCurrency != null && accCurrency.ExchangeRate != 0) ? accCurrency.ExchangeRate : 1m;
+
+                    decimal txSum = _allTransactions
+                        .Where(t => t.AccountId == acc.Id && t.Date.Date >= current && t.Date.Date < next)
+                        .Sum(t => t.Amount);
+
+                    periodSum += (txSum * rateToMain) / targetRate;
+                }
+
+                runningBalance += periodSum;
+                tooltips.Add($"{current:dd.MM.yyyy}\n{runningBalance:N2} {targetCurrency.Code}");
+                points.Add(new Point(0, (double)runningBalance));
+                current = next;
+            }
+
+            if (points.Count < 2) return;
+
+            double width = BalanceTrendCanvas.ActualWidth > 0 ? BalanceTrendCanvas.ActualWidth : 900;
+            double height = BalanceTrendCanvas.ActualHeight > 0 ? BalanceTrendCanvas.ActualHeight : 240;
+
+            double minB = points.Min(p => p.Y);
+            double maxB = points.Max(p => p.Y);
+            if (minB == maxB) { minB -= 10; maxB += 10; }
+
+            double lowerBound = minB > 0 ? Math.Max(0, minB - (maxB - minB) * 0.15) : minB;
+            double range = maxB - lowerBound;
+            if (range == 0) range = 1;
+
+            // Vykreslení jemných horizontálních mřížkových čar
+            for (int i = 0; i <= 3; i++)
+            {
+                double gridY = (height / 3) * i;
+                decimal gridVal = (decimal)(maxB - (range / 3) * i);
+
+                Line gridLine = new Line
+                {
+                    X1 = 0,
+                    Y1 = gridY,
+                    X2 = width,
+                    Y2 = gridY,
+                    Stroke = (Brush)new BrushConverter().ConvertFromString("#E5E7EB"),
+                    StrokeThickness = 1,
+                    StrokeDashArray = new DoubleCollection(new double[] { 4, 4 })
+                };
+                BalanceTrendCanvas.Children.Add(gridLine);
+
+                TextBlock lbl = new TextBlock
+                {
+                    Text = $"{gridVal:N0} {targetCurrency.Code}",
+                    FontSize = 10,
+                    Foreground = Brushes.Gray
+                };
+                Canvas.SetLeft(lbl, 0);
+                Canvas.SetTop(lbl, gridY - 14);
+                BalanceTrendCanvas.Children.Add(lbl);
+            }
+
+            var drawPoints = new PointCollection();
+            for (int i = 0; i < points.Count; i++)
+            {
+                double x = (width / (points.Count - 1)) * i;
+                double y = height - ((points[i].Y - lowerBound) / range * height);
+                drawPoints.Add(new Point(x, y));
+
+                Ellipse marker = new Ellipse
+                {
+                    Width = 7,
+                    Height = 7,
+                    Fill = Brushes.White,
+                    Stroke = (Brush)new BrushConverter().ConvertFromString("#3B82F6"),
+                    StrokeThickness = 2,
+                    ToolTip = tooltips[i]
+                };
+                Canvas.SetLeft(marker, x - 3.5);
+                Canvas.SetTop(marker, y - 3.5);
+                BalanceTrendCanvas.Children.Add(marker);
+            }
+
+            // Výplň pod čarou (Area gradient)
+            var areaPoints = new PointCollection(drawPoints);
+            areaPoints.Add(new Point(width, height));
+            areaPoints.Add(new Point(0, height));
+
+            Polygon area = new Polygon
+            {
+                Points = areaPoints,
+                Fill = new LinearGradientBrush(
+                    (Color)ColorConverter.ConvertFromString("#303B82F6"),
+                    (Color)ColorConverter.ConvertFromString("#053B82F6"),
+                    new Point(0, 0), new Point(0, 1))
+            };
+            BalanceTrendCanvas.Children.Add(area);
+
+            // Hlavní křivka zůstatku
+            Polyline line = new Polyline
+            {
+                Points = drawPoints,
+                Stroke = (Brush)new BrushConverter().ConvertFromString("#3B82F6"),
+                StrokeThickness = 3,
+                StrokeLineJoin = PenLineJoin.Round
+            };
+            BalanceTrendCanvas.Children.Add(line);
+
+            // Popisky osy X
+            TextBlock txtStart = new TextBlock { Text = startDate.ToString("dd. MM. yyyy"), Foreground = Brushes.Gray, FontSize = 11 };
+            Canvas.SetLeft(txtStart, 0);
+            Canvas.SetBottom(txtStart, -25);
+            BalanceTrendCanvas.Children.Add(txtStart);
+
+            TextBlock txtEnd = new TextBlock { Text = endDate.ToString("dd. MM. yyyy"), Foreground = Brushes.Gray, FontSize = 11 };
+            Canvas.SetRight(txtEnd, 0);
+            Canvas.SetBottom(txtEnd, -25);
+            BalanceTrendCanvas.Children.Add(txtEnd);
+        }
+
+        // ==========================================
+        // VÝVOJ PŘÍJMŮ
         // ==========================================
         private void DrawIncomeTrendChart(Currency targetCurrency, decimal targetRate)
         {
             IncomeTrendCanvas.Children.Clear();
-
-            // 1. Vezmeme ÚPLNĚ VŠECHNY příjmy z databáze (ignorujeme měsíc vybraný v roletce)
             var allIncomes = _allTransactions.Where(t => t.Type == TransactionType.Income).ToList();
             if (!allIncomes.Any()) return;
 
-            // 2. Seskupíme je podle ROKU a MĚSÍCE a rovnou je i matematicky převedeme do vybrané měny
             var grouped = allIncomes
                 .GroupBy(t => new { t.Date.Year, t.Date.Month })
                 .Select(g => new
@@ -148,12 +351,11 @@ namespace NexioFinance.Views
                         return (t.Amount * rateToMain) / targetRate;
                     })
                 })
-                .OrderBy(x => x.Year).ThenBy(x => x.Month) // Zaručíme, že jdou chronologicky za sebou
+                .OrderBy(x => x.Year).ThenBy(x => x.Month)
                 .ToList();
 
             if (!grouped.Any()) return;
 
-            // 3. Vykreslení grafu
             double canvasHeight = 140;
             double maxAmount = (double)grouped.Max(g => g.Amount);
             if (maxAmount == 0) maxAmount = 1;
@@ -162,7 +364,6 @@ namespace NexioFinance.Views
             double spacing = 30;
             double currentX = 20;
 
-            // Dynamicky roztáhneme plátno podle toho, kolik měsíců vykreslujeme (aby fungoval scrollbar!)
             IncomeTrendCanvas.Width = grouped.Count * (barWidth + spacing) + 40;
 
             for (int i = 0; i < grouped.Count; i++)
@@ -171,21 +372,18 @@ namespace NexioFinance.Views
                 double barHeight = ((double)item.Amount / maxAmount) * canvasHeight;
                 if (barHeight < 5) barHeight = 5;
 
-                // Samotný sloupec
                 Rectangle bar = new Rectangle
                 {
                     Width = barWidth,
                     Height = barHeight,
-                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#10B981")), // Zelená barva pro příjmy
+                    Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#10B981")),
                     RadiusX = 4,
                     RadiusY = 4
                 };
-
                 Canvas.SetLeft(bar, currentX);
                 Canvas.SetBottom(bar, 25);
                 IncomeTrendCanvas.Children.Add(bar);
 
-                // Částka nad sloupcem
                 TextBlock amountText = new TextBlock
                 {
                     Text = $"{item.Amount:N0}",
@@ -199,7 +397,6 @@ namespace NexioFinance.Views
                 Canvas.SetBottom(amountText, 25 + barHeight + 5);
                 IncomeTrendCanvas.Children.Add(amountText);
 
-                // Datum pod sloupcem (Měsíc/Rok)
                 TextBlock dateText = new TextBlock
                 {
                     Text = $"{item.Month}/{item.Year}",
@@ -215,8 +412,9 @@ namespace NexioFinance.Views
                 currentX += barWidth + spacing;
             }
         }
+
         // ==========================================
-        // VYKRESLOVÁNÍ KOLÁČŮ (MATEMATIKA)
+        // KOLÁČOVÉ GRAFY
         // ==========================================
         private void DrawIncomePieChart(List<ChartTransactionItem> data)
         {
@@ -266,7 +464,6 @@ namespace NexioFinance.Views
                 {
                     double sweepAngle = share * 2 * Math.PI;
                     Point startPoint = new Point(center.X + radius * Math.Cos(currentAngle), center.Y + radius * Math.Sin(currentAngle));
-
                     currentAngle += sweepAngle;
                     Point endPoint = new Point(center.X + radius * Math.Cos(currentAngle), center.Y + radius * Math.Sin(currentAngle));
 
@@ -287,14 +484,12 @@ namespace NexioFinance.Views
         }
 
         // ==========================================
-        // VYKRESLOVÁNÍ SLOUPCŮ A DRILL-DOWN ROZKLIK
+        // SLOUPCOVÝ GRAF VÝDAJŮ
         // ==========================================
         private void DrawBarChart(List<ChartTransactionItem> data)
         {
             ExpenseBarCanvas.Children.Clear();
-
             var relevantData = data.Where(t => t.Type == TransactionType.Expense && t.Category != null).ToList();
-
             var grouped = new List<CategoryChartItem>();
 
             if (_drillDownCategoryId == null)
@@ -317,7 +512,7 @@ namespace NexioFinance.Views
 
             if (grouped.Count == 0) return;
 
-            double canvasHeight = 200;
+            double canvasHeight = 160;
             double maxAmount = (double)grouped.Max(g => g.Amount);
             double barWidth = 60;
             double spacing = 40;
@@ -339,7 +534,6 @@ namespace NexioFinance.Views
                     Cursor = _drillDownCategoryId == null ? Cursors.Hand : Cursors.Arrow,
                     Tag = item.Id
                 };
-
                 Canvas.SetLeft(bar, currentX);
                 Canvas.SetBottom(bar, 30);
 
@@ -385,7 +579,6 @@ namespace NexioFinance.Views
         }
     }
 
-    // Pomocná třída pro sjednocení měn v grafech
     public class ChartTransactionItem
     {
         public Category Category { get; set; }
@@ -393,7 +586,6 @@ namespace NexioFinance.Views
         public decimal ConvertedAmount { get; set; }
     }
 
-    // Pomocná třída pro sloupcový graf
     public class CategoryChartItem
     {
         public int Id { get; set; }
