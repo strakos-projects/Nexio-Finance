@@ -11,11 +11,11 @@ namespace Nexio_Finance
         // Konstruktor se spustí úplně jako první, ještě před načtením oken
         public App()
         {
-            /*
-            var culture = new CultureInfo("en");
+        
+           /*    var culture = new CultureInfo("en");
 Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
-            Nexio_Finance.Properties.Resources.Culture = culture;*/
+            Nexio_Finance.Properties.Resources.Culture = culture; */
         }
     }
 }
